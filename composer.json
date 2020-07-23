@@ -1,0 +1,78 @@
+{
+    "name": "sierratecnologia/locaravel",
+    "description": "Recursos para GeoLocalização",
+    "type": "library",
+    "keywords": [
+        "sierratecnologia",
+        "locaravel"
+    ],
+    "license": "MIT",
+    "homepage": "https://sierratecnologia.com/packages/locaravel/",
+    "support": {
+        "email": "help@sierratecnologia.com.br",
+        "issues": "https://github.com/sierratecnologia/locaravel/issues",
+        "source": "https://github.com/sierratecnologia/locaravel",
+        "docs": "https://github.com/sierratecnologia/locaravel/blob/master/README.md"
+    },
+    "authors": [
+        {
+            "name": "SierraTecnologia",
+            "homepage": "https://sierratecnologia.com.br",
+            "email": "help@sierratecnologia.com.br"
+        },
+        {
+            "name": "Ricardo Rebello Sierra",
+            "email": "contato@ricardosierra.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "doctrine/dbal": "^2.0",
+        "illuminate/support": "^5.2|^6.0|^7.0|^8.0",
+        "illuminate/database": "^5.2|^6.0|^7.0|^8.0",
+        "sierratecnologia/crypto": "dev-master",
+        "ricardosierra/translation": "dev-master",
+        "igaster/laravel_cities": "^1.0",
+        "geo-io/wkb-parser": "^1.0",
+        "jmikola/geojson": "^1.0",
+        "bosnadev/database": "~0.16"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5",
+        "mockery/mockery": "0.9.*",
+        "codeclimate/php-test-reporter": "~0.3",
+        "illuminate/pagination": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Locaravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/BaseTestCase.php",
+            "tests/Stubs/"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../**",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Locaravel\\LocaravelProvider"
+            ],
+            "dont-discover": [
+                "scaffold-interface"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
