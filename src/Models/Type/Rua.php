@@ -16,7 +16,7 @@ use Locaravel\Models\Model;
  */
 class Rua extends AddressType
 {
-    public static $DEFAULT_ID = 2;
+    const CODE = 2;
 
 
     /**

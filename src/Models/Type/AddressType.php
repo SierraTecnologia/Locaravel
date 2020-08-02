@@ -34,10 +34,13 @@ class AddressType extends Model
     ];
     public static function createTodosPadroes()
     {
+        if (AddressType::first()) {
+            return ;
+        }
         collect(self::$TYPES)->each(
             function ($class) {
                 $instanceFeature = new $class;
-                $id = $instanceFeature::$DEFAULT_ID;
+                $id = $instanceFeature::CODE;
                 AddressType::firstOrCreate(
                     [
                     'id'                => $id,
@@ -56,7 +59,7 @@ class AddressType extends Model
         if (isset($data['content'])) {
             $find = [
                 'content' => $data['content'],
-                'address_type_id' => static::$DEFAULT_ID,
+                'address_type_id' => static::CODE,
             ];
         }
 

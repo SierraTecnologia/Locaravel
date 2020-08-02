@@ -17,7 +17,7 @@ use Locaravel\Models\Model;
  */
 class Regiao extends AddressType
 {
-    public static $DEFAULT_ID = 1;
+    const CODE = 1;
 
 
     /**

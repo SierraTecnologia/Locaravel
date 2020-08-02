@@ -16,7 +16,7 @@ use Locaravel\Models\Model;
  */
 class Bloco extends AddressType
 {
-    public static $DEFAULT_ID = 6;
+    const CODE = 6;
 
     /**
      * @inheritdoc

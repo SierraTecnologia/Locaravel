@@ -16,7 +16,7 @@ use Locaravel\Models\Model;
  */
 class Casa extends AddressType
 {
-    public static $DEFAULT_ID = 5;
+    const CODE = 5;
 
     /**
      * @inheritdoc
@@ -41,6 +41,7 @@ class Casa extends AddressType
             QuantasPessoasMoramAqui::class,
         ];
     }
+
 
     /**
      * Gera uma Nova Notificação para o Alvo

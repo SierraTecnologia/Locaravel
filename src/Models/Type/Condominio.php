@@ -16,7 +16,7 @@ use Locaravel\Models\Model;
  */
 class Condominio extends AddressType
 {
-    public static $DEFAULT_ID = 3;
+    const CODE = 3;
     /**
      * @inheritdoc
      */

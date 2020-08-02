@@ -16,7 +16,7 @@ use Locaravel\Models\Model;
  */
 class Predio extends AddressType
 {
-    public static $DEFAULT_ID = 4;
+    const CODE = 4;
 
     /**
      * @inheritdoc

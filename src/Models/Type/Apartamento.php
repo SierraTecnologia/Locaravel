@@ -16,7 +16,7 @@ use Locaravel\Models\Model;
  */
 class Apartamento extends AddressType
 {
-    public static $DEFAULT_ID = 7;
+    const CODE = 7;
 
     /**
      * @inheritdoc
