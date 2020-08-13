@@ -13,9 +13,9 @@
     </section>
     <div class="content">
 
-        <div class="box box-primary">
+        <div class="box card box-primary">
 
-            <div class="box-body">
+            <div class="box-body card-body">
                 <div class="row">
                     {!! Form::open(['route' => 'addresses.store']) !!}
 

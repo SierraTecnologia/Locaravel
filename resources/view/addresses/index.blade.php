@@ -15,13 +15,13 @@
 
         <div class="clearfix"></div>
 
-        <div class="box box-primary">
+        <div class="box card box-primary">
             <div class="btn-group">
                 <h1 class="pull-right">
                     <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('locaravel::addresses.create') !!}">{!! trans('words.addNew') !!}</a>
                 </h1>
             </div>
-            <div class="box-body">
+            <div class="box-body card-body">
                     @include('locaravel::addresses.table')
             </div>
         </div>
