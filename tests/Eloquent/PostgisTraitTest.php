@@ -18,7 +18,7 @@ class PostgisTraitTest extends BaseTestCase
      */
     protected $queries;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->model = new TestModel();
         $this->queries = &$this->model->getConnection()->getPdo()->queries;

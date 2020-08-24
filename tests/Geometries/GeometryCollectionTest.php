@@ -11,7 +11,7 @@ class GeometryCollectionTest extends BaseTestCase
      */
     private $collection;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $collection = new LineString(
             [

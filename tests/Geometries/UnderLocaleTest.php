@@ -21,7 +21,7 @@ class UnderLocaleTest extends BaseTestCase
         setlocale(LC_NUMERIC, null);
     }
     
-    public function setUp()
+    protected function setUp(): void
     {
         if(localeconv()['decimal_point'] == '.') {
             $this->markTestSkipped('The locale is not available for testing float output formatting');

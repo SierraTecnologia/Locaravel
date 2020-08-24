@@ -8,7 +8,7 @@ class BlueprintTest extends BaseTestCase
 {
     protected $blueprint;
 
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

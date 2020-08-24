@@ -7,7 +7,7 @@ class LineStringTest extends BaseTestCase
 {
     private $points;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->points = [new Point(1, 1), new Point(2, 2), new Point(3, 3)];
     }
