@@ -50,6 +50,13 @@ class Address extends Model
         return $query->where('address_id', $value);
     }
  
+    /**
+     * Get the owning addresseable model.
+     */
+    public function addresseable()
+    {
+        return $this->morphTo();
+    }
  
     // /**
     //  * Produtos acima de R$ 1
@@ -69,6 +76,14 @@ class Address extends Model
     public function addressType()
     {
         return $this->belongsTo(AddressType::class);
+    }
+
+    /**
+     * Get the post's localization.
+     */
+    public function localization()
+    {
+        return $this->morphOne('Locaravel\Models\Localization', 'localizationable');
     }
 
 

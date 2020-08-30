@@ -2,15 +2,15 @@
 
 namespace Locaravel\Models;
 
+use Illuminate\Support\Str;
 use Locaravel\Builders\LocationBuilder;
+use Locaravel\Concerns\GeographicalTrait;
 use Locaravel\Contants\Tables;
 use Locaravel\Entities\LocationEntity;
+use Locaravel\Models\Model;
 use Locaravel\ValueObjects\Coordinates;
 use Locaravel\ValueObjects\Latitude;
 use Locaravel\ValueObjects\Longitude;
-use Locaravel\Models\Model;
-use Illuminate\Support\Str;
-use Locaravel\Concerns\GeographicalTrait;
 
 /**
  * Class Location.
@@ -27,6 +27,7 @@ class Localization extends Model
     use GeographicalTrait;
     
     public static $classeBuilder = LocationBuilder::class;
+    public static $kilometers = true;
 
     /**
      * @inheritdoc
@@ -82,4 +83,13 @@ class Localization extends Model
             ]
         );
     }
+
+    /**
+     * Get the owning localizationable model.
+     */
+    public function localizationable()
+    {
+        return $this->morphTo();
+    }
+ 
 }
