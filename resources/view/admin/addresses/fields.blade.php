@@ -31,5 +31,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit(trans('words.save'), ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('locaravel::addresses.index') !!}" class="btn btn-default">{!! trans('words.cancel') !!}</a>
+    <a href="{!! route('locaravel::admin.addresses.index') !!}" class="btn btn-default">{!! trans('words.cancel') !!}</a>
 </div>

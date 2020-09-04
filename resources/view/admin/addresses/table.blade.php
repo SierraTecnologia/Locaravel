@@ -11,10 +11,10 @@
                     <td>{!! $address->content !!}</td>
                     <td>{!! $address->addressType->name !!}</td>
                     <td>
-                        {!! Form::open(['route' => ['locaravel::addresses.destroy', $address->id], 'method' => 'delete']) !!}
+                        {!! Form::open(['route' => ['locaravel::admin.addresses.destroy', $address->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            <a href="{!! route('locaravel::addresses.show', [$address->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                            <a href="{!! route('locaravel::addresses.edit', [$address->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="{!! route('locaravel::admin.addresses.show', [$address->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                            <a href="{!! route('locaravel::admin.addresses.edit', [$address->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                             {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('".trans('phrases.areYouSure')."')"]) !!}
                         </div>
                         {!! Form::close() !!}

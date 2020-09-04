@@ -1,17 +1,15 @@
 <?php
 
-namespace Locaravel\Http\Controllers;
+namespace Locaravel\Http\Controllers\Admin;
 
 use Locaravel\Models\Address;
 
 class AddressController extends Controller
 {
-
-
     public function index()
     {
         $addresses = Address::sempai()->get();
-        return view('locaravel::addresses.index',  compact('addresses'));
+        return view('locaravel::admin.addresses.index', compact('addresses'));
     }
     
     /**
@@ -28,7 +26,7 @@ class AddressController extends Controller
         $addresses = Address::addressesByFather($id)->get();
 
         return view(
-            'locaravel::addresses.show',
+            'locaravel::admin.addresses.show',
             compact(
                 'address',
                 'addresses'
@@ -47,7 +45,7 @@ class AddressController extends Controller
 
         $addresses = Address::addressesByFather($id)->get();
 
-        return view('locaravel::addresses.create');
+        return view('locaravel::admin.addresses.create');
     }
 
     /**
@@ -75,7 +73,7 @@ class AddressController extends Controller
     {
         $address = Address::findOrFail($id);
 
-        return view('locaravel::addresses.edit', compact('address'));
+        return view('locaravel::admin.addresses.edit', compact('address'));
     }
 
     /**
