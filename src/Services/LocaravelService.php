@@ -6,20 +6,19 @@
 namespace Locaravel\Services;
 
 /**
- * 
+ *
  */
 class LocaravelService
 {
-
     protected $config;
 
     protected $modelServices = false;
 
     public function __construct($config = false)
     {
-        if (!$this->config = $config) {
-            $this->config = \Illuminate\Support\Facades\Config::get('sitec-facilitador.models');
-        }
+        // if (!$this->config = $config) {
+        //     $this->config = \Illuminate\Support\Facades\Config::get('sitec-facilitador.models');
+        // }
     }
 
     public function getModelServices()
@@ -51,5 +50,4 @@ class LocaravelService
         
         return false;
     }
-
 }

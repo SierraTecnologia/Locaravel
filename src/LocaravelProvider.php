@@ -58,10 +58,10 @@ class LocaravelProvider extends ServiceProvider
         // Register configs, migrations, etc
         $this->registerDirectories();
 
-        // // COloquei no register pq nao tava reconhecendo as rotas para o adminlte
-        // $this->app->booted(function () {
-        //     $this->routes();
-        // });
+        // COloquei no register pq nao tava reconhecendo as rotas para o adminlte
+        $this->app->booted(function () {
+            $this->routes();
+        });
     }
 
 
@@ -91,13 +91,15 @@ class LocaravelProvider extends ServiceProvider
         $this->app->singleton(
             'LocaravelService',
             function ($app) {
-                return new LocaravelService(\Illuminate\Support\Facades\Config::get('sitec-locaravel.models'));
+                return new LocaravelService();
             }
         );
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-        $this->routes();
+        // $this->app->booted(function () {
+        //     $this->routes();
+        // });
 
         // The connection factory is used to create the actual connection instances on
         // the database. We will inject the factory into the manager so that it may
