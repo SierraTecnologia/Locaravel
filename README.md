@@ -1,5 +1,48 @@
 # Locaravel
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Locaravel** - A remarkably magical tools for geolocation
 
 [![Build Status](https://travis-ci.org/SierraTecnologia/Locaravel.svg?branch=master)](https://travis-ci.org/SierraTecnologia/Locaravel)
