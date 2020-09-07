@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateLocationsTable extends Migration
 {
@@ -13,9 +13,9 @@ class CreateLocationsTable extends Migration
      */
     public function up()
     {
-
         Schema::create(
-            'localizations', function (Blueprint $table) {
+            'localizations',
+            function (Blueprint $table) {
                 $table->increments('id');
                 $table->double('latitude');
                 $table->double('longitude');
@@ -27,9 +27,13 @@ class CreateLocationsTable extends Migration
         // See: https://dev.mysql.com/doc/refman/5.7/en/spatial-type-overview.html
         if (config('database.default') == 'mysql') {
             DB::statement("ALTER TABLE `localizations` ADD `coordinates` POINT;");
+        } else {
+            DB::statement("ALTER TABLE localizations ADD coordinates POINT;");
         }
+
         Schema::create(
-            'localization_historys', function (Blueprint $table) {
+            'localization_historys',
+            function (Blueprint $table) {
                 $table->increments('id');
                 $table->double('latitude');
                 $table->double('longitude');
@@ -42,6 +46,8 @@ class CreateLocationsTable extends Migration
         // See: https://dev.mysql.com/doc/refman/5.7/en/spatial-type-overview.html
         if (config('database.default') == 'mysql') {
             DB::statement("ALTER TABLE `localization_historys` ADD `coordinates` POINT;");
+        } else {
+            DB::statement("ALTER TABLE localization_historys ADD coordinates POINT;");
         }
 
         /**
@@ -97,10 +103,6 @@ class CreateLocationsTable extends Migration
         // END$$
          
         // DELIMITER ;");
-
-
-
-
     }
 
     /**
@@ -113,5 +115,4 @@ class CreateLocationsTable extends Migration
         Schema::dropIfExists('localization_historys');
         Schema::dropIfExists('localizations');
     }
-
 }
