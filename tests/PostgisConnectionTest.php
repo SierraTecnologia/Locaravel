@@ -4,7 +4,7 @@ use Locaravel\PostgisConnection;
 use Locaravel\Schema\Builder;
 use Stubs\PDOStub;
 
-class PostgisConnectionTest extends PHPUnit_Framework_TestCase
+class PostgisConnectionTest extends TestCase
 {
     private $postgisConnection;
 
