@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b17ecf01346b19b966c3c1be0e08ad7",
+    "content-hash": "edf497c14bf95b1600b58b06ed5c56d3",
     "packages": [
         {
             "name": "bosnadev/database",
@@ -2369,6 +2369,76 @@
                 "symlink": true,
                 "relative": true
             }
+        },
+        {
+            "name": "sierratecnologia/pedreiro",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SierraTecnologia/Pedreiro.git",
+                "reference": "9633576b7ab055c49fb105a35ffb27b444b2e6d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SierraTecnologia/Pedreiro/zipball/9633576b7ab055c49fb105a35ffb27b444b2e6d1",
+                "reference": "9633576b7ab055c49fb105a35ffb27b444b2e6d1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^9.3",
+                "psalm/plugin-laravel": "^1.2",
+                "vimeo/psalm": "^3.11"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Pedreiro\\PedreiroServiceProvider"
+                    ],
+                    "aliases": {
+                        "Pedreiro": "Pedreiro\\PedreiroFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pedreiro\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ricardo Sierra",
+                    "email": "ricardo@ricasolucoes.com.br",
+                    "homepage": "https://ricasolucoes.com.br",
+                    "role": "Developer"
+                }
+            ],
+            "description": ":package_description",
+            "homepage": "https://github.com/sierratecnologia/pedreiro",
+            "keywords": [
+                "SierraTecnologia",
+                "pedreiro"
+            ],
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-09-08T05:07:05+00:00"
         },
         {
             "name": "spatie/laravel-translatable",
