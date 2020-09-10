@@ -36,7 +36,7 @@
         "geo-io/wkb-parser": "^1.0",
         "jmikola/geojson": "^1.0",
         "bosnadev/database": "~0.20",
-        "sierratecnologia/pedreiro": "^0.1.0"
+        "sierratecnologia/pedreiro": "dev-master"
     },
     "require-dev": {
         "myclabs/php-enum": "^1.6",
