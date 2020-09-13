@@ -3,7 +3,7 @@
 namespace Locaravel;
 
 use Bosnadev\Database\DatabaseServiceProvider as PostgresDatabaseServiceProvider;
-use Igaster\LaravelCities\GeoServiceProvider;
+// use Igaster\LaravelCities\GeoServiceProvider;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Routing\Router;
@@ -154,7 +154,8 @@ class LocaravelProvider extends ServiceProvider
 
     protected function setProviders()
     {
-        $this->app->register(GeoServiceProvider::class);
+        // @todo
+        // $this->app->register(GeoServiceProvider::class);
         $this->app->register(CryptoProvider::class);
     }
     /**
