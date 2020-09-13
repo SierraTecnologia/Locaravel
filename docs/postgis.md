@@ -88,7 +88,7 @@ class CreateLocationsTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('locations');
+        Schema::dropIfExists('locations');
     }
 
 }
