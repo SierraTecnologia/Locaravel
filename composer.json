@@ -28,8 +28,8 @@
     "require": {
         "php": "^7.4",
         "doctrine/dbal": "^2.0",
-        "illuminate/support": "^7.0|^8.0",
-        "illuminate/database": "^7.0|^8.0",
+        "illuminate/support": "^7.0 || ^8.0",
+        "illuminate/database": "^7.0 || ^8.0",
         "sierratecnologia/crypto": "dev-master",
         "ricardosierra/translation": "dev-master",
         "geo-io/wkb-parser": "^1.0",
