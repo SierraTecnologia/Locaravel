@@ -1,10 +1,10 @@
 <?php
 
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Locaravel\Models\Identity\Address;
 use Locaravel\Models\Type\AddressType;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
 
 class CreateFeaturesAddressesTables extends Migration
 {
@@ -19,7 +19,8 @@ class CreateFeaturesAddressesTables extends Migration
          * Ruas
          */
         Schema::create(
-            'address_types', function (Blueprint $table) {
+            'address_types',
+            function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
                 $table->string('name', 255);
@@ -29,7 +30,8 @@ class CreateFeaturesAddressesTables extends Migration
             }
         );
         Schema::create(
-            'addresses', function (Blueprint $table) {
+            'addresses',
+            function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
                 
@@ -50,7 +52,8 @@ class CreateFeaturesAddressesTables extends Migration
         );
         
         Schema::create(
-            'addresseables', function (Blueprint $table) {
+            'addresseables',
+            function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->integer('address_id')->unsigned();
                 $table->string('addresseable_id')->nullable();
@@ -61,35 +64,6 @@ class CreateFeaturesAddressesTables extends Migration
                 $table->foreign('address_id')->references('id')->on('addresses');
             }
         );
-        
-
-
-        Schema::create(
-            'hotels', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('name');
-                $table->string('code');
-
-                $table->integer('address_id')->unsigned()->nullable()->default(null);
-                $table->foreign('address_id')->references('id')->on('addresses')->onUpdate('cascade')->onDelete('set null');
-                $table->timestamps();
-            }
-        );
-
-        Schema::create(
-            'aparts', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('name');
-                $table->string('code');
-                $table->unsignedInteger('hotel_id');
-                $table->timestamps();
-
-                $table->foreign('hotel_id')->references('id')->on('hotels');
-            }
-        );
-
-
-
     }
 
     /**
