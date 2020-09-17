@@ -1,6 +1,6 @@
 <?php
 
-namespace Locaravel\Services;
+namespace Locaravel\Saas;
 
 use App\Models\User;
 use App\Sitec\Filter;

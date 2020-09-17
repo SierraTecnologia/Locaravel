@@ -9,11 +9,8 @@ use Locaravel\Models\Type\AddressType;
 
 class AddressService
 {
-    
-    
     public function __construct()
     {
-        
     }
 
     /**
@@ -31,23 +28,23 @@ class AddressService
         return AddressType::pluck('name', 'id')->toArray();
     }
     
-    public function getAddressLocation(string $query)
-    {
-        $token = config('services.google_maps.token');
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?address={$query}&key={$token}";
+    // public function getAddressLocation(string $query)
+    // {
+    //     $token = config('services.google_maps.token');
+    //     $url = "https://maps.googleapis.com/maps/api/geocode/json?address={$query}&key={$token}";
 
-        $client = new Client();
-        $response = $client->post($url);
+    //     $client = new Client();
+    //     $response = $client->post($url);
 
-        $response = json_decode($response->getBody());
+    //     $response = json_decode($response->getBody());
 
-        if (! $response->results || ! isset($response->results[0]->geometry->location)) {
-            return null;
-        }
+    //     if (! $response->results || ! isset($response->results[0]->geometry->location)) {
+    //         return null;
+    //     }
 
-        $location = $response->results[0]->geometry->location;
+    //     $location = $response->results[0]->geometry->location;
 
-        // Conversation
-        return new Location($location->lat, $location->lng);
-    }
+    //     // Conversation
+    //     return new Location($location->lat, $location->lng);
+    // }
 }

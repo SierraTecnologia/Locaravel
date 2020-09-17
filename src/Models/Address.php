@@ -35,12 +35,12 @@ class Address extends Model
             "analyzer" => "standard",
         ],
     );
-        /**
-         * Produtos visíveis
-         *
-         * @param  \Illuminate\Database\Eloquent\Builder $query
-         * @return \Illuminate\Database\Eloquent\Builder
-         */
+    /**
+     * Produtos visíveis
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeSempai($query)
     {
         return $query->where('address_id', null);
@@ -98,6 +98,12 @@ class Address extends Model
     public static function create($data)
     {
         AddressType::createTodosPadroes();
+
+        // Implementar Cep
+        if (isset($data['cep'])) {
+        }
+
+        //
         $last = false;
         if (isset($data['region'])) {
             if (!$region = Address::where('address_type_id', Regiao::CODE)->where('content', $data['region'])->first()) {
@@ -141,5 +147,4 @@ class Address extends Model
         parent::create($data);
         return ;
     }
-
 }

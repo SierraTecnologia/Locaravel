@@ -1,13 +1,13 @@
 <?php
 
-namespace Locaravel\Services;
+namespace Locaravel\Services\MapsService;
 
 use GuzzleHttp\Client;
 use Locaravel\Conversations\Location;
 
 class MapsService
 {
-    public function getAddressLocation(string $query, $return = Location::class, $isAddress = true)
+    public static function getAddressLocation(string $query, $return = Location::class, $isAddress = true)
     {
         $token = config('services.google_maps.token');
         $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng={$query}&key={$token}"
@@ -27,6 +27,10 @@ class MapsService
         $location = $response->results[0]->geometry->location;
 
         return new $return($location->lat, $location->lng);
+    }
+    public static function getLocationAddress(string $query, $return = Location::class)
+    {
+        return self::getAddressLocation(string $query, $return, false)
     }
 
 }
