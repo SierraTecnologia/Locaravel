@@ -97,6 +97,12 @@ class LocaravelProvider extends ServiceProvider
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
+        $this->app->singleton(
+            'locaravel',
+            function () {
+                return new LocaravelService();
+            }
+        );
         // $this->app->booted(function () {
         //     $this->routes();
         // });

@@ -26,6 +26,8 @@ final class AddressEntity extends AbstractEntity
         if (!is_null($attributes['id'])) {
             $this->setId($attributes['id']);
         }
+
+        
         if (isset($attributes['location'])) {
             $this->setLocation(new LocationEntity($attributes['location']));
         }

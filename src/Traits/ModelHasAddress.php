@@ -6,15 +6,33 @@ use Illuminate\Support\Facades\DB;
 
 trait ModelHasAddress
 {
+    public static function bootSluggable()
+    {
+        static::saving(function ($model) {
+            $model->slug = $model->generateSlug($model->title);
+        });
+    }
+
+    public function generateSlug($string)
+    {
+        return strtolower(preg_replace(
+            ['/[^\w\s]+/', '/\s+/'],
+            ['', '-'],
+            $string
+        ));
+    }
+    
+
+
     public function getLocalizationAttribute()
     {
-        if (!is_object($this->address)) {
-            dd($this);
-        }
-        if (is_object($this->address->localization)) {
+        if (is_object($this->address) && is_object($this->address->localization)) {
             return $this->address->localization;
         }
-        dd($this->address);
+        if (!is_object($this->address)) {
+            // dd($this);
+        }
+        // dd($this->address);
     }
     public function getLatitudeAttribute()
     {
