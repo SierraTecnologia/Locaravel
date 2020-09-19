@@ -999,16 +999,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.28.1",
+            "version": "v7.28.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f7493ab717ca2a9598b1db2d6a3bae8ac8c755e8"
+                "reference": "b0942c391975972b1a54b2dc983e33a239f169a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f7493ab717ca2a9598b1db2d6a3bae8ac8c755e8",
-                "reference": "f7493ab717ca2a9598b1db2d6a3bae8ac8c755e8",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b0942c391975972b1a54b2dc983e33a239f169a9",
+                "reference": "b0942c391975972b1a54b2dc983e33a239f169a9",
                 "shasum": ""
             },
             "require": {
@@ -1153,7 +1153,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-09-09T15:02:46+00:00"
+            "time": "2020-09-17T14:23:26+00:00"
         },
         {
             "name": "league/commonmark",
@@ -1611,16 +1611,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.39.2",
+            "version": "2.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "326efde1bc09077a26cb77f6e2e32e13f06c27f2"
+                "reference": "6c7646154181013ecd55e80c201b9fd873c6ee5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/326efde1bc09077a26cb77f6e2e32e13f06c27f2",
-                "reference": "326efde1bc09077a26cb77f6e2e32e13f06c27f2",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/6c7646154181013ecd55e80c201b9fd873c6ee5d",
+                "reference": "6c7646154181013ecd55e80c201b9fd873c6ee5d",
                 "shasum": ""
             },
             "require": {
@@ -1696,7 +1696,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-10T12:16:42+00:00"
+            "time": "2020-09-11T19:00:58+00:00"
         },
         {
             "name": "opis/closure",
@@ -2441,16 +2441,90 @@
             }
         },
         {
+            "name": "sierratecnologia/former",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../former",
+                "reference": "4ca71960daf0972f4946ddef8731bd777cc1fd65"
+            },
+            "require": {
+                "anahkiasen/html-object": ">=1.4",
+                "illuminate/config": "^7.0 || ^8.0",
+                "illuminate/container": "^7.0 || ^8.0",
+                "illuminate/http": "^7.0 || ^8.0",
+                "illuminate/routing": "^7.0 || ^8.0",
+                "illuminate/support": "^7.0 || ^8.0",
+                "illuminate/translation": "^7.0 || ^8.0",
+                "illuminate/view": "^7.0 || ^8.0",
+                "php": "^7.4"
+            },
+            "replace": {
+                "anahkiasen/former": "*",
+                "weotch/former": "*"
+            },
+            "require-dev": {
+                "illuminate/database": "^7.0 || ^8.0",
+                "mockery/mockery": ">=0.9.1",
+                "phpunit/phpunit": ">=4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Former\\FormerServiceProvider"
+                    ],
+                    "aliases": {
+                        "Former": "Former\\Facades\\Former"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Former\\": [
+                        "src/Former",
+                        "tests"
+                    ],
+                    "Laravel\\": "src/Laravel"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                }
+            ],
+            "description": "A powerful form builder",
+            "homepage": "http://formers.github.io/former/",
+            "keywords": [
+                "bootstrap",
+                "form",
+                "foundation",
+                "laravel"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "sierratecnologia/pedreiro",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "../Pedreiro",
-                "reference": "c20320e982828c11a09ea785fb5a114e5e7bf5bb"
+                "reference": "19b135ee734a5f4f812408e6df97144146c71c3f"
             },
             "require": {
                 "anahkiasen/html-object": "^1.4",
                 "php": "^7.4",
+                "sierratecnologia/former": "dev-master",
                 "spatie/laravel-validation-rules": "^2.6"
             },
             "require-dev": {
@@ -5894,16 +5968,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.1.8",
+            "version": "9.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "f98f8466126d83b55b924a94d2244c53c216b8fb"
+                "reference": "cf6582906d4b2502c5f4c6be6a3d0b4cd5b3ef7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f98f8466126d83b55b924a94d2244c53c216b8fb",
-                "reference": "f98f8466126d83b55b924a94d2244c53c216b8fb",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/cf6582906d4b2502c5f4c6be6a3d0b4cd5b3ef7f",
+                "reference": "cf6582906d4b2502c5f4c6be6a3d0b4cd5b3ef7f",
                 "shasum": ""
             },
             "require": {
@@ -5911,7 +5985,7 @@
                 "ext-libxml": "*",
                 "ext-xmlwriter": "*",
                 "nikic/php-parser": "^4.8",
-                "php": "^7.3 || ^8.0",
+                "php": ">=7.3",
                 "phpunit/php-file-iterator": "^3.0.3",
                 "phpunit/php-text-template": "^2.0.2",
                 "sebastian/code-unit-reverse-lookup": "^2.0.2",
@@ -5963,7 +6037,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-07T08:07:10+00:00"
+            "time": "2020-09-15T06:14:11+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
