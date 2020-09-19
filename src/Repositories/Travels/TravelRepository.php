@@ -55,7 +55,7 @@ class TravelRepository extends CmsRepository
      * Updates Travel into database.
      *
      * @param Travel $travel
-     * @param array $input
+     * @param array  $input
      *
      * @return Travel
      */

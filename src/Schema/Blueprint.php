@@ -5,7 +5,7 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a point column on the table
      *
-     * @param      $column
+     * @param  $column
      * @return \Illuminate\Support\Fluent
      */
     public function point($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
@@ -16,7 +16,7 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a multipoint column on the table
      *
-     * @param      $column
+     * @param  $column
      * @return \Illuminate\Support\Fluent
      */
     public function multipoint($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
@@ -27,7 +27,7 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a polygon column on the table
      *
-     * @param      $column
+     * @param  $column
      * @return \Illuminate\Support\Fluent
      */
     public function polygon($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
@@ -38,7 +38,7 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a multipolygon column on the table
      *
-     * @param      $column
+     * @param  $column
      * @return \Illuminate\Support\Fluent
      */
     public function multipolygon($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
@@ -49,7 +49,7 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a linestring column on the table
      *
-     * @param      $column
+     * @param  $column
      * @return \Illuminate\Support\Fluent
      */
     public function linestring($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
@@ -60,7 +60,7 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a multilinestring column on the table
      *
-     * @param      $column
+     * @param  $column
      * @return \Illuminate\Support\Fluent
      */
     public function multilinestring($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
@@ -71,7 +71,7 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a geography column on the table
      *
-     * @param   string  $column
+     * @param  string $column
      * @return \Illuminate\Support\Fluent
      */
     public function geography($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
@@ -82,7 +82,7 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a geometry column on the table
      *
-     * @param   string  $column
+     * @param  string $column
      * @return \Illuminate\Support\Fluent
      */
     public function geometry($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
@@ -93,10 +93,10 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a geometrycollection column on the table
      *
-     * @param      $column
-     * @param null $srid
-     * @param int $dimensions
-     * @param bool $typmod
+     * @param  $column
+     * @param  null $srid
+     * @param  int  $dimensions
+     * @param  bool $typmod
      * @return \Illuminate\Support\Fluent
      */
     public function geometrycollection($column, $srid = null, $dimensions = 2, $typmod = true)
@@ -118,6 +118,7 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Disable postgis on this database.
      * WIll drop the extension in the database.
+     *
      * @return \Illuminate\Support\Fluent
      */
     public function disablePostgis()

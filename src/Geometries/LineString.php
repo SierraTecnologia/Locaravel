@@ -17,9 +17,11 @@ class LineString extends PointCollection implements GeometryInterface
     public static function fromString($wktArgument)
     {
         $pairs = explode(',', trim($wktArgument));
-        $points = array_map(function ($pair) {
-            return Point::fromPair($pair);
-        }, $pairs);
+        $points = array_map(
+            function ($pair) {
+                return Point::fromPair($pair);
+            }, $pairs
+        );
 
         return new static($points);
     }

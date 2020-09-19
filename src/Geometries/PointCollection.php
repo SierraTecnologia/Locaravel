@@ -24,9 +24,11 @@ abstract class PointCollection implements IteratorAggregate, Arrayable, ArrayAcc
             throw new InvalidArgumentException('$points must contain at least two entries');
         }
 
-        $validated = array_filter($points, function ($value) {
-            return $value instanceof Point;
-        });
+        $validated = array_filter(
+            $points, function ($value) {
+                return $value instanceof Point;
+            }
+        );
 
         if (count($points) !== count($validated)) {
             throw new InvalidArgumentException('$points must be an array of Points');
@@ -74,7 +76,7 @@ abstract class PointCollection implements IteratorAggregate, Arrayable, ArrayAcc
     }
 
     /**
-     * @param mixed $offset
+     * @param  mixed $offset
      * @return null|Point
      */
     public function offsetGet($offset)
@@ -107,8 +109,12 @@ abstract class PointCollection implements IteratorAggregate, Arrayable, ArrayAcc
 
     public function toPairList()
     {
-        return implode(',', array_map(function (Point $point) {
-            return $point->toPair();
-        }, $this->points));
+        return implode(
+            ',', array_map(
+                function (Point $point) {
+                    return $point->toPair();
+                }, $this->points
+            )
+        );
     }
 }

@@ -8,18 +8,22 @@ trait ModelHasAddress
 {
     public static function bootModelHasAddress()
     {
-        static::saving(function ($model) {
-            if (isset($model->cep)) {
-                unset($model->cep);
+        static::saving(
+            function ($model) {
+                if (isset($model->cep)) {
+                    unset($model->cep);
+                }
+                // $model->slug = $model->generateSlug($model->title);
             }
-            // $model->slug = $model->generateSlug($model->title);
-        });
-        static::creating(function ($model) {
-            if (isset($model->cep)) {
-                unset($model->cep);
+        );
+        static::creating(
+            function ($model) {
+                if (isset($model->cep)) {
+                    unset($model->cep);
+                }
+                // $model->slug = $model->generateSlug($model->title);
             }
-            // $model->slug = $model->generateSlug($model->title);
-        });
+        );
     }
 
     // public function generateSlug($string)

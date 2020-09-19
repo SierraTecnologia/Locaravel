@@ -15,9 +15,11 @@ class MultiPolygon extends Geometry implements Countable
      */
     public function __construct(array $polygons)
     {
-        $validated = array_filter($polygons, function ($value) {
-            return $value instanceof Polygon;
-        });
+        $validated = array_filter(
+            $polygons, function ($value) {
+                return $value instanceof Polygon;
+            }
+        );
 
         if (count($polygons) !== count($validated)) {
             throw new InvalidArgumentException('$polygons must be an array of Points');
@@ -32,9 +34,13 @@ class MultiPolygon extends Geometry implements Countable
 
     public function __toString()
     {
-        return implode(',', array_map(function (Polygon $polygon) {
-            return sprintf('(%s)', (string) $polygon);
-        }, $this->polygons));
+        return implode(
+            ',', array_map(
+                function (Polygon $polygon) {
+                    return sprintf('(%s)', (string) $polygon);
+                }, $this->polygons
+            )
+        );
     }
 
     public static function fromString($wktArgument)
@@ -42,16 +48,20 @@ class MultiPolygon extends Geometry implements Countable
         $parts    = preg_split('/(\)\s*\)\s*,\s*\(\s*\()/', $wktArgument, -1, PREG_SPLIT_DELIM_CAPTURE);
         $polygons = static::assembleParts($parts);
 
-        return new static(array_map(function ($polygonString) {
-            return Polygon::fromString($polygonString);
-        }, $polygons));
+        return new static(
+            array_map(
+                function ($polygonString) {
+                    return Polygon::fromString($polygonString);
+                }, $polygons
+            )
+        );
     }
 
     /**
      * (PHP 5 &gt;= 5.1.0)<br/>
      * Count elements of an object
      *
-     * @link http://php.net/manual/en/countable.count.php
+     * @link   http://php.net/manual/en/countable.count.php
      * @return int The custom count as an integer.
      *       </p>
      *       <p>
@@ -85,7 +95,7 @@ class MultiPolygon extends Geometry implements Countable
      * "((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))",
      * "((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))"
      *
-     * @param array $parts
+     * @param  array $parts
      * @return array
      */
     protected static function assembleParts(array $parts)

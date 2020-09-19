@@ -107,10 +107,12 @@ class Address extends Model
         $last = false;
         if (isset($data['region'])) {
             if (!$region = Address::where('address_type_id', Regiao::CODE)->where('content', $data['region'])->first()) {
-                $region = Address::create([
+                $region = Address::create(
+                    [
                     'address_type_id' => Regiao::CODE,
                     'content' => $data['region'],
-                ]);
+                    ]
+                );
             }
             $last = $region;
         }

@@ -13,7 +13,7 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Adds a statement to add a point geometry column
      *
-     * @param \Illuminate\Support\Fluent $column
+     * @param  \Illuminate\Support\Fluent $column
      * @return string
      */
     public function typePoint(Fluent $column)
@@ -32,7 +32,7 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Adds a statement to add a point geometry column
      *
-     * @param \Illuminate\Support\Fluent $column
+     * @param  \Illuminate\Support\Fluent $column
      * @return string
      */
     public function typeMultipoint(Fluent $column)
@@ -51,7 +51,7 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Adds a statement to add a polygon geometry column
      *
-     * @param \Illuminate\Support\Fluent $column
+     * @param  \Illuminate\Support\Fluent $column
      * @return string
      */
     public function typePolygon(Fluent $column)
@@ -70,7 +70,7 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Adds a statement to add a multipolygon geometry column
      *
-     * @param \Illuminate\Support\Fluent $column
+     * @param  \Illuminate\Support\Fluent $column
      * @return string
      */
     public function typeMultipolygon(Fluent $column)
@@ -89,7 +89,7 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Adds a statement to add a linestring geometry column
      *
-     * @param \Illuminate\Support\Fluent $column
+     * @param  \Illuminate\Support\Fluent $column
      * @return string
      */
     public function typeLinestring(Fluent $column)
@@ -108,7 +108,7 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Adds a statement to add a multilinestring geometry column
      *
-     * @param \Illuminate\Support\Fluent $column
+     * @param  \Illuminate\Support\Fluent $column
      * @return string
      */
     public function typeMultilinestring(Fluent $column)
@@ -127,7 +127,7 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Adds a statement to add a linestring geometry column
      *
-     * @param \Illuminate\Support\Fluent $column
+     * @param  \Illuminate\Support\Fluent $column
      * @return string
      */
     public function typeGeography(Fluent $column)
@@ -138,7 +138,7 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Adds a statement to add a geometry column
      *
-     * @param \Illuminate\Support\Fluent $column
+     * @param  \Illuminate\Support\Fluent $column
      * @return string
      */
     public function typeGeometry(Fluent $column)
@@ -149,8 +149,8 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Adds a statement to add a geometrycollection geometry column
      *
-     * @param Blueprint $blueprint
-     * @param Fluent $command
+     * @param  Blueprint $blueprint
+     * @param  Fluent    $command
      * @return string
      */
     public function compileGeometrycollection(Blueprint $blueprint, Fluent $command)
@@ -183,8 +183,8 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Adds a statement to add a geometry column
      *
-     * @param Blueprint $blueprint
-     * @param Fluent $command
+     * @param  Blueprint $blueprint
+     * @param  Fluent    $command
      * @return string
      */
     protected function compileGeometry(Blueprint $blueprint, Fluent $command)
@@ -208,10 +208,11 @@ class PostgisGrammar extends PostgresGrammar
     /**
      * Checks if the given $column is a valid geometry type
      *
-     * @param \Illuminate\Support\Fluent $column
+     * @param  \Illuminate\Support\Fluent $column
      * @return boolean
      */
-    protected function isValid($column) {
+    protected function isValid($column)
+    {
         return in_array(strtoupper($column->geomtype), PostgisGrammar::$allowed_geom_types) && is_int((int) $column->srid);
     }
 }

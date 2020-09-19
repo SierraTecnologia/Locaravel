@@ -29,22 +29,22 @@ abstract class Geometry implements GeometryInterface, \JsonSerializable
         $type = trim(substr($value, 0, $left));
 
         switch (strtoupper($type)) {
-            case 'POINT':
-                return Point::class;
-            case 'LINESTRING':
-                return LineString::class;
-            case 'POLYGON':
-                return Polygon::class;
-            case 'MULTIPOINT':
-                return MultiPoint::class;
-            case 'MULTILINESTRING':
-                return MultiLineString::class;
-            case 'MULTIPOLYGON':
-                return MultiPolygon::class;
-            case 'GEOMETRYCOLLECTION':
-                return GeometryCollection::class;
-            default:
-                throw new UnknownWKTTypeException('Type was ' . $type);
+        case 'POINT':
+            return Point::class;
+        case 'LINESTRING':
+            return LineString::class;
+        case 'POLYGON':
+            return Polygon::class;
+        case 'MULTIPOINT':
+            return MultiPoint::class;
+        case 'MULTILINESTRING':
+            return MultiLineString::class;
+        case 'MULTIPOLYGON':
+            return MultiPolygon::class;
+        case 'GEOMETRYCOLLECTION':
+            return GeometryCollection::class;
+        default:
+            throw new UnknownWKTTypeException('Type was ' . $type);
         }
     }
 

@@ -12,14 +12,16 @@ class GeometryCollection extends Geometry implements Countable
     protected $geometries = [];
 
     /**
-     * @param GeometryInterface[] $geometries
+     * @param  GeometryInterface[] $geometries
      * @throws InvalidArgumentException
      */
     public function __construct(array $geometries)
     {
-        $validated = array_filter($geometries, function ($value) {
-            return $value instanceof GeometryInterface;
-        });
+        $validated = array_filter(
+            $geometries, function ($value) {
+                return $value instanceof GeometryInterface;
+            }
+        );
 
         if (count($geometries) !== count($validated)) {
             throw new InvalidArgumentException('$geometries must be an array of Geometry objects');

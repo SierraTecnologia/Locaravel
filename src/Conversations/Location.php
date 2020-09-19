@@ -8,10 +8,14 @@ class Location
 {
 
     const EARTH_RADIUS = 6371;
-    /** @var float */
+    /**
+     * @var float 
+     */
     public $latitude;
 
-    /** @var float */
+    /**
+     * @var float 
+     */
     public $longitude;
 
     public function __construct($latitude, $longitude)
@@ -20,9 +24,15 @@ class Location
         $this->longitude = $longitude;
     }
 
-    public function getLatitude() { return $this->latitude; }
+    public function getLatitude()
+    {
+        return $this->latitude; 
+    }
 
-    public function getLongitude() { return $this->longitude; }
+    public function getLongitude()
+    {
+        return $this->longitude; 
+    }
 
     public function getLocationAttachment()
     {
@@ -32,8 +42,8 @@ class Location
     /**
      * Calculate the distance to the point in kilometers.
      *
-     * @param $latitude
-     * @param $longitude
+     * @param  $latitude
+     * @param  $longitude
      * @return float|int
      */
     public function getDistance(float $latitude, float $longitude)

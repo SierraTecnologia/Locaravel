@@ -19,9 +19,11 @@ class MultiLineString extends Geometry implements Countable
             throw new InvalidArgumentException('$linestrings must contain at least one entry');
         }
 
-        $validated = array_filter($linestrings, function ($value) {
-            return $value instanceof LineString;
-        });
+        $validated = array_filter(
+            $linestrings, function ($value) {
+                return $value instanceof LineString;
+            }
+        );
 
         if (count($linestrings) !== count($validated)) {
             throw new InvalidArgumentException('$linestrings must be an array of Points');
@@ -43,9 +45,11 @@ class MultiLineString extends Geometry implements Countable
     public static function fromString($wktArgument)
     {
         $str = preg_split('/\)\s*,\s*\(/', substr(trim($wktArgument), 1, -1));
-        $linestrings = array_map(function ($data) {
-            return LineString::fromString($data);
-        }, $str);
+        $linestrings = array_map(
+            function ($data) {
+                return LineString::fromString($data);
+            }, $str
+        );
 
 
         return new static($linestrings);
@@ -53,9 +57,13 @@ class MultiLineString extends Geometry implements Countable
 
     public function __toString()
     {
-        return implode(',', array_map(function (LineString $linestring) {
-            return sprintf('(%s)', (string)$linestring);
-        }, $this->getLineStrings()));
+        return implode(
+            ',', array_map(
+                function (LineString $linestring) {
+                    return sprintf('(%s)', (string)$linestring);
+                }, $this->getLineStrings()
+            )
+        );
     }
 
     public function count()

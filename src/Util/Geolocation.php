@@ -13,10 +13,10 @@ class GeographicalTrait
     protected static $earth_radius = 6371000;
 
     /**
-     * @param float $fromLatitude
-     * @param float $fromLongitude
-     * @param float $toLatitude
-     * @param float $toLongitude
+     * @param float  $fromLatitude
+     * @param float  $fromLongitude
+     * @param float  $toLatitude
+     * @param float  $toLongitude
      * @param string $unit
      *
      * @return float
@@ -45,7 +45,7 @@ class GeographicalTrait
     }
 
     /**
-     * @param float $distance
+     * @param float  $distance
      * @param string $unit
      *
      * @return float

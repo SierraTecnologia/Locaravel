@@ -6,11 +6,11 @@ use Locaravel\PostgisConnection;
 class ConnectionFactory extends \Bosnadev\Database\Connectors\ConnectionFactory
 {
     /**
-     * @param string       $driver
-     * @param \Closure|PDO $connection
-     * @param string       $database
-     * @param string       $prefix
-     * @param array        $config
+     * @param  string       $driver
+     * @param  \Closure|PDO $connection
+     * @param  string       $database
+     * @param  string       $prefix
+     * @param  array        $config
      * @return \Illuminate\Database\Connection|PostgisConnection
      */
     protected function createConnection($driver, $connection, $database, $prefix = '', array $config = [])

@@ -24,7 +24,7 @@ class Controller extends BaseController
      */
     public function getVersion()
     {
-        if (!empty($this->_version)){
+        if (!empty($this->_version)) {
             return $this->_version;
         }
 
@@ -60,7 +60,8 @@ class Controller extends BaseController
      * Response com Array
      * [success] {Bollean}
      */
-    protected function defaultResponse($success=true) {
+    protected function defaultResponse($success=true)
+    {
         return [
             'success' => $success
         ];
@@ -71,7 +72,8 @@ class Controller extends BaseController
      * [success] true
      * [message] {String}
      */
-    protected function responseWithMessage($message) {
+    protected function responseWithMessage($message)
+    {
         $array = [
             'message' => $message
         ];
@@ -83,7 +85,8 @@ class Controller extends BaseController
      * [success] false
      * [message] {String}
      */
-    protected function responseWithErrorMessage($message) {
+    protected function responseWithErrorMessage($message)
+    {
         $array = [
             'message' => $message
         ];
@@ -95,7 +98,8 @@ class Controller extends BaseController
      * [success] false
      * [message] {String}
      */
-    protected function responseWithErrors($validation) {
+    protected function responseWithErrors($validation)
+    {
         $errors = $validation->messages();
         return $this->responseWithErrorMessage($errors[0]);
     }
@@ -105,7 +109,8 @@ class Controller extends BaseController
      * [success] false
      * [data] {Array}
      */
-    protected function responseWithData($data) {
+    protected function responseWithData($data)
+    {
         $array = [
             'data' => $data
         ];

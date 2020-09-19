@@ -46,12 +46,12 @@ trait PostgisTrait
         if (! $value instanceof GeometryCollection) {
             $attrs = $this->getPostgisType($key);
             switch (strtoupper($attrs['geomtype'])) {
-                case 'GEOMETRY':
-                    return $this->getConnection()->raw(sprintf("public.ST_GeomFromText('%s', '%d')", $value->toWKT(), $attrs['srid']));
+            case 'GEOMETRY':
+                return $this->getConnection()->raw(sprintf("public.ST_GeomFromText('%s', '%d')", $value->toWKT(), $attrs['srid']));
                     break;
-                case 'GEOGRAPHY':
-                default:
-                    return $this->getConnection()->raw(sprintf("public.ST_GeogFromText('%s')", $value->toWKT()));
+            case 'GEOGRAPHY':
+            default:
+                return $this->getConnection()->raw(sprintf("public.ST_GeogFromText('%s')", $value->toWKT()));
                     break;
             }
         }

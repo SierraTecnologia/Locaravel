@@ -2,10 +2,8 @@
 
 namespace Locaravel\Saas;
 
-use App\Models\User;
-use App\Sitec\Filter;
-use Illuminate\Database\Eloquent\Model;
 use Log;
+use Validate\Cep;
 
 class CorreiosService extends Service
 {
@@ -17,7 +15,7 @@ class CorreiosService extends Service
 
     public function validateCep($cep)
     {
-        $cep = Filter::cep($cep);
+        $cep = Cep::toDatabase($cep);
         if (!$cep = $this->get($cep.'/json')) {
             return [
                 "erro" => true
