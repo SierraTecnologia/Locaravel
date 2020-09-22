@@ -1,6 +1,6 @@
 <?php
 
-namespace Locaravel\Services\MapsService;
+namespace Locaravel\Services;
 
 use GuzzleHttp\Client;
 use Locaravel\Conversations\Location;
