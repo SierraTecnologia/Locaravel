@@ -101,6 +101,21 @@ class Address extends Model
 
         // Implementar Cep
         if (isset($data['cep'])) {
+
+            // {#1974
+            //     +"cep": "22460-030"
+            //     +"logradouro": "Rua Pacheco Leão"
+            //     +"complemento": "até 914/915"
+            //     +"bairro": "Jardim Botânico"
+            //     +"localidade": "Rio de Janeiro"
+            //     +"uf": "RJ"
+            //     +"ibge": "3304557"
+            //     +"gia": ""
+            //     +"ddd": "21"
+            //     +"siafi": "6001"
+            //   }
+            // $cepService = new \Locaravel\Saas\CorreiosService();
+            // $cepResult = $cepService->validateCep($request->get('cep'));
         }
 
         //

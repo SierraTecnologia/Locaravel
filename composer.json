@@ -31,11 +31,12 @@
         "illuminate/support": "^7.0 || ^8.0",
         "illuminate/database": "^7.0 || ^8.0",
         "sierratecnologia/crypto": "dev-master",
+        "sierratecnologia/pedreiro": "dev-master",
+        "ricardosierra/validate": "dev-master",
         "ricardosierra/translation": "dev-master",
         "geo-io/wkb-parser": "^1.0",
         "jmikola/geojson": "^1.0",
         "ricardosierra/database": "^0.21",
-        "sierratecnologia/pedreiro": "dev-master",
         "jordanbrauer/unit-converter": "^0.8.4"
     },
     "require-dev": {
