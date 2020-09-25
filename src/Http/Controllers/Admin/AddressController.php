@@ -6,7 +6,7 @@ use Locaravel\Models\Address;
 
 class AddressController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $addresses = Address::sempai()->get();
         return view('locaravel::admin.addresses.index', compact('addresses'));
