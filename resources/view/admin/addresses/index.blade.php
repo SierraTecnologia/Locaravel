@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content-header">
-        <h1 class="pull-left">{!! trans('words.addresses') !!}</h1>
+        <h1 class="float-left">{!! trans('words.addresses') !!}</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> {!! trans('words.home') !!}</a></li>
             <li class="active">{!! trans('words.addresses') !!}</li>
@@ -15,13 +15,13 @@
 
         <div class="clearfix"></div>
 
-        <div class="box card box-primary">
+        <div class="box panel card box-primary panel-primary card-primary">
             <div class="btn-group">
-                <h1 class="pull-right">
-                    <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('locaravel::admin.addresses.create') !!}">{!! trans('words.addNew') !!}</a>
+                <h1 class="float-right">
+                    <a class="btn btn-primary float-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('locaravel::admin.addresses.create') !!}">{!! trans('words.addNew') !!}</a>
                 </h1>
             </div>
-            <div class="box-body card-body">
+            <div class="box-body panel-body card-body">
                     @include('locaravel::admin.addresses.table')
             </div>
         </div>

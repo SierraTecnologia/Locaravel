@@ -19,22 +19,22 @@
         </ol>
       </section> --}}
     <div class="content">
-        <div class="box card box-primary">
+        <div class="box panel card box-primary panel-primary card-primary">
             <div class="btn-group">
-                <h1 class="pull-right">
-                    <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('locaravel::admin.addresses.create') !!}">{!! trans('words.addNew') !!}</a>
+                <h1 class="float-right">
+                    <a class="btn btn-primary float-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('locaravel::admin.addresses.create') !!}">{!! trans('words.addNew') !!}</a>
                 </h1>
             </div>
-            <div class="box-body card-body">
+            <div class="box-body panel-body card-body">
                     @include('locaravel::admin.addresses.table')
             </div>
         </div>
 
-        <div class="box card box-primary">
-            <div class="box-body card-body">
+        <div class="box panel card box-primary panel-primary card-primary">
+            <div class="box-body panel-body card-body">
                 <div class="row" style="padding-left: 20px">
                     @include('locaravel::admin.addresses.show_fields')
-                    <a href="{!! route('locaravel::addresses.index') !!}" class="btn btn-default">{!! trans('words.back') !!}</a>
+                    <a href="{!! route('locaravel::addresses.index') !!}" class="btn btn-secondary">{!! trans('words.back') !!}</a>
                 </div>
             </div>
         </div>

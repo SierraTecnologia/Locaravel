@@ -13,8 +13,8 @@
    </section>
    <div class="content">
 
-       <div class="box card box-primary">
-           <div class="box-body card-body">
+       <div class="box panel card box-primary panel-primary card-primary">
+           <div class="box-body panel-body card-body">
                <div class="row">
 
                    @include('layouts.partials.message')
