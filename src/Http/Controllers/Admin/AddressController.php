@@ -69,7 +69,7 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $address = Address::findOrFail($id);
 
@@ -101,7 +101,7 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $address = Address::findOrFail($id);
 
