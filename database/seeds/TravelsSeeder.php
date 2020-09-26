@@ -12,11 +12,17 @@ class TravelsSeeder extends Seeder
     public function run()
     {
 
-        factory(Locaravel\Models\Travels\Hotel::class, 2)->create()->each(function($hotel) {
-            $hotel->aparts()->save(factory(Locaravel\Models\Travels\Apart::class, rand(1, 100))->create()->each(function($room) {
-                // $room->travels()->save(factory(Locaravel\Models\Travels\Travel::class, rand(1, 100))->make());  @todo 
-                return true;
-            }));
-        });
+        factory(Locaravel\Models\Travels\Hotel::class, 2)->create()->each(
+            function ($hotel) {
+                $hotel->aparts()->save(
+                    factory(Locaravel\Models\Travels\Apart::class, rand(1, 100))->create()->each(
+                        function ($room) {
+                            // $room->travels()->save(factory(Locaravel\Models\Travels\Travel::class, rand(1, 100))->make());  @todo 
+                            return true;
+                        }
+                    )
+                );
+            }
+        );
     }
 }
