@@ -24,19 +24,27 @@ class Propriedade extends Model
         'category_id',
     ];
 
-    protected $mappingProperties = array(
+    /**
+     * @var string[][]
+     *
+     * @psalm-var array{category_id: array{type: string, analyzer: string}}
+     */
+    protected array $mappingProperties = array(
         'category_id' => [
             'type' => 'string',
             "analyzer" => "standard",
         ],
     );
         /**
-         * Produtos visíveis
-         *
-         * @param  \Illuminate\Database\Eloquent\Builder $query
-         * @return \Illuminate\Database\Eloquent\Builder
-         */
-    public function scopeSempai($query)
+     * Produtos visíveis
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<\Illuminate\Database\Eloquent\Model>
+     */
+    public function scopeSempai($query): \Illuminate\Database\Eloquent\Builder
     {
         return $query->where('propriedade_id', null);
     }
@@ -60,8 +68,12 @@ class Propriedade extends Model
 
     /**
      * Get the propriedadeType that owns the phone.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Relations\BelongsTo<PropriedadeType>
      */
-    public function propriedadeType()
+    public function propriedadeType(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(PropriedadeType::class);
     }
@@ -69,8 +81,10 @@ class Propriedade extends Model
         
     /**
      * Get all of the owning propriedadeable models.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
-    public function propriedadeable()
+    public function propriedadeable(): \Illuminate\Database\Eloquent\Relations\MorphTo
     {
         return $this->morphTo();
     }

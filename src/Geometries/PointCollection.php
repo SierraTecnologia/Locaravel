@@ -36,38 +36,29 @@ abstract class PointCollection implements IteratorAggregate, Arrayable, ArrayAcc
         $this->points = $points;
     }
 
-    public function getPoints()
-    {
-        return $this->points;
-    }
-
+    /**
+     * @return Point[]
+     *
+     * @psalm-return array<array-key, Point>
+     */
     public function toArray()
     {
         return $this->points;
     }
 
+    /**
+     * @return ArrayIterator
+     *
+     * @psalm-return ArrayIterator<array-key, Point>
+     */
     public function getIterator()
     {
         return new ArrayIterator($this->points);
     }
 
-    public function prependPoint(Point $point)
-    {
-        array_unshift($this->points, $point);
-    }
-
-    public function appendPoint(Point $point)
+    public function appendPoint(Point $point): void
     {
         $this->points[] = $point;
-    }
-
-    public function insertPoint($index, Point $point)
-    {
-        if (count($this->points) - 1 < $index) {
-            throw new InvalidArgumentException('$index is greater than the size of the array');
-        }
-
-        array_splice($this->points, $offset, 0, [$point]);
     }
 
     public function offsetExists($offset)
@@ -102,12 +93,7 @@ abstract class PointCollection implements IteratorAggregate, Arrayable, ArrayAcc
         unset($this->points[$offset]);
     }
 
-    public function count()
-    {
-        return count($this->points);
-    }
-
-    public function toPairList()
+    public function toPairList(): string
     {
         return implode(
             ',', array_map(

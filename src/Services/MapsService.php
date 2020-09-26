@@ -7,7 +7,7 @@ use Locaravel\Conversations\Location;
 
 class MapsService
 {
-    public static function getAddressLocation(string $query, $return = Location::class, $isAddress = true)
+    public static function getAddressLocation(string $query, $return = Location::class, $isAddress = true): ?object
     {
         $token = config('services.google_maps.token');
         $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng={$query}&key={$token}"

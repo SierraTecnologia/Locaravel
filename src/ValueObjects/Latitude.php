@@ -11,7 +11,7 @@ use InvalidArgumentException;
  */
 final class Latitude
 {
-    private $value;
+    private float $value;
 
     /**
      * Latitude constructor.

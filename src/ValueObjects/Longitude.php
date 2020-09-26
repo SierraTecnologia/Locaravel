@@ -11,7 +11,7 @@ use InvalidArgumentException;
  */
 final class Longitude
 {
-    private $value;
+    private float $value;
 
     /**
      * Longitude constructor.

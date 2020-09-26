@@ -22,6 +22,9 @@ class PostgisConnection extends \Bosnadev\Database\PostgresConnection
     }
 
 
+    /**
+     * @return Schema\Builder
+     */
     public function getSchemaBuilder()
     {
         if (is_null($this->schemaGrammar)) {

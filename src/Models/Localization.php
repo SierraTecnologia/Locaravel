@@ -26,13 +26,19 @@ class Localization extends Model
 {
     use GeographicalTrait;
     
-    public static $classeBuilder = LocationBuilder::class;
-    public static $kilometers = true;
+
+
+    /**
+     * @var true
+     */
+    public static bool $kilometers = true;
 
     /**
      * @inheritdoc
+     *
+     * @var false
      */
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     /**
      * @inheritdoc
@@ -41,8 +47,12 @@ class Localization extends Model
 
     /**
      * @inheritdoc
+     *
+     * @var string[]
+     *
+     * @psalm-var array{0: string}
      */
-    protected $fillable = [
+    protected array $fillable = [
         'coordinates',
         // 'name',
         // 'code',
@@ -70,26 +80,5 @@ class Localization extends Model
     }
 
 
-
-    /**
-     * @return LocationEntity
-     */
-    public function toEntity(): LocationEntity
-    {
-        return new LocationEntity(
-            [
-            'id' => $this->id,
-            'coordinates' => $this->coordinates->toArray(),
-            ]
-        );
-    }
-
-    /**
-     * Get the owning localizationable model.
-     */
-    public function localizationable()
-    {
-        return $this->morphTo();
-    }
  
 }

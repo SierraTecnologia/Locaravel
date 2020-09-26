@@ -19,47 +19,27 @@ class Condominio extends AddressType
     const CODE = 3;
     /**
      * @inheritdoc
+     *
+     * @var false
      */
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     /**
      * @inheritdoc
+     *
+     * @var string[]
+     *
+     * @psalm-var array{0: string}
      */
-    protected $fillable = [
+    protected array $fillable = [
         'value',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return 'Condominio';
     }
 
-    public function perguntas()
-    {
-        return [
-            QuantosPrediosExistem::class,
-        ];
-    }
-
-    public function filhos()
-    {
-        return [
-            Residencia::class,
-        ];
-    }
-
-
-    public static function extraImutableAtributes()
-    {
-        return [
-            
-        ];
-    }
-
-    public function extraAtributes()
-    {
-        
-    }
 
 
 

@@ -27,44 +27,11 @@ use SierraTecnologia\Crypto\CryptoProvider;
 
 class LocaravelProvider extends ServiceProvider
 {
-    public $packageName = 'locaravel';
+    public string $packageName = 'locaravel';
 
     use ConsoleTools;
     
-    public static $menuItens = [
-        'Admin' => [
-            'Locaravel' => [
-                [
-                    'text'        => 'Locaravel',
-                    'route'       => 'admin.locaravel.index',
-                    'icon'        => 'fas fa-fw fa-gavel',
-                    'icon_color'  => 'blue',
-                    'label_color' => 'success',
-                    // 'access' => \App\Models\Role::$ADMIN
-                ],
-            ],
-        ],
-    ];
 
-    /**
-     * Boot method.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        Schema::defaultStringLength(191);
-
-        // Register configs, migrations, etc
-        $this->registerDirectories();
-
-        // COloquei no register pq nao tava reconhecendo as rotas para o adminlte
-        $this->app->booted(
-            function () {
-                $this->routes();
-            }
-        );
-    }
 
 
     /**
@@ -130,18 +97,11 @@ class LocaravelProvider extends ServiceProvider
         $this->setProviders();
     }
 
-    protected function loadConfigs()
-    {
-        
-        // Merge own configs into user configs
-        $this->mergeConfigFrom(__DIR__.'/../publishes/config/sitec-locaravel.php', 'sitec-locaravel');
-    }
-
-    protected function publishMigrations()
+    protected function publishMigrations(): void
     {
     }
        
-    protected function publishAssets()
+    protected function publishAssets(): void
     {
         
         // // Publish locaravel css and js to public directory
@@ -152,7 +112,7 @@ class LocaravelProvider extends ServiceProvider
         // );
     }
 
-    protected function publishConfigs()
+    protected function publishConfigs(): void
     {
         
         // Publish config files
@@ -164,7 +124,7 @@ class LocaravelProvider extends ServiceProvider
         );
     }
 
-    protected function setProviders()
+    protected function setProviders(): void
     {
         // @todo
         // $this->app->register(GeoServiceProvider::class);
@@ -194,7 +154,7 @@ class LocaravelProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
-    private function loadViews()
+    private function loadViews(): void
     {
         // View namespace
         $viewsPath = $this->getResourcesPath('views');
@@ -207,7 +167,7 @@ class LocaravelProvider extends ServiceProvider
         );
     }
     
-    private function loadTranslations()
+    private function loadTranslations(): void
     {
         // Publish lanaguage files
         $this->publishes(

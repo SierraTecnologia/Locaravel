@@ -29,34 +29,21 @@ class Address extends Model
         'category_id',
     ];
 
-    protected $mappingProperties = array(
+    /**
+     * @var string[][]
+     *
+     * @psalm-var array{category_id: array{type: string, analyzer: string}}
+     */
+    protected array $mappingProperties = array(
         'category_id' => [
             'type' => 'string',
             "analyzer" => "standard",
         ],
     );
-    /**
-     * Produtos visíveis
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeSempai($query)
-    {
-        return $query->where('address_id', null);
-    }
-    public function scopeAddressesByFather($query, $value)
-    {
-        return $query->where('address_id', $value);
-    }
+
+
  
-    /**
-     * Get the owning addresseable model.
-     */
-    public function addresseable()
-    {
-        return $this->morphTo();
-    }
+
  
     // /**
     //  * Produtos acima de R$ 1
@@ -69,22 +56,6 @@ class Address extends Model
     //     return $query->where('price', '>', 1);
     // }
 
-
-    /**
-     * Get the addressType that owns the phone.
-     */
-    public function addressType()
-    {
-        return $this->belongsTo(AddressType::class);
-    }
-
-    /**
-     * Get the post's localization.
-     */
-    public function localization()
-    {
-        return $this->morphOne('Locaravel\Models\Localization', 'localizationable');
-    }
 
 
     /**

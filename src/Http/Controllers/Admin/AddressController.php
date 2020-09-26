@@ -6,7 +6,7 @@ use Locaravel\Models\Address;
 
 class AddressController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\View\View
     {
         $addresses = Address::sempai()->get();
         return view('locaravel::admin.addresses.index', compact('addresses'));
@@ -17,9 +17,9 @@ class AddressController extends Controller
      *
      * @param string $date
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
-    public function show($id)
+    public function show($id): \Illuminate\View\View
     {
         $address = Address::findOrFail($id);
 
@@ -37,13 +37,13 @@ class AddressController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function create($id = false)
+    public function create($id = false): \Illuminate\View\View
     {
-        $address = Address::findOrFail($id);
+        Address::findOrFail($id);
 
-        $addresses = Address::addressesByFather($id)->get();
+        Address::addressesByFather($id)->get();
 
         return view('locaravel::admin.addresses.create');
     }
@@ -51,11 +51,11 @@ class AddressController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         Address::create(['name' => $request->name]);
 
@@ -67,9 +67,9 @@ class AddressController extends Controller
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function edit(Request $request, $id)
+    public function edit(Request $request, $id): \Illuminate\View\View
     {
         $address = Address::findOrFail($id);
 
@@ -79,11 +79,11 @@ class AddressController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request)
+    public function update(Request $request): \Illuminate\Http\RedirectResponse
     {
         $address = Address::findOrFail($request->address_id);
 
@@ -99,9 +99,9 @@ class AddressController extends Controller
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, $id): \Illuminate\Http\RedirectResponse
     {
         $address = Address::findOrFail($id);
 

@@ -13,11 +13,6 @@ class Controller extends BaseController
 
     public $_version = null;
 
-    public function __construct()
-    {
-        $this->_version = $this->getVersion();
-    }
-
     /**
      * Tenta capturar um token para o business via SERVER, POST, ou GET
      * Caso não ache ele usa o token padrão da passepague
@@ -59,8 +54,12 @@ class Controller extends BaseController
     /**
      * Response com Array
      * [success] {Bollean}
+     *
+     * @return array
+     *
+     * @psalm-return array{success: mixed}
      */
-    protected function defaultResponse($success=true)
+    protected function defaultResponse(bool $success=true): array
     {
         return [
             'success' => $success
@@ -69,52 +68,17 @@ class Controller extends BaseController
 
     /**
      * Response com Array
-     * [success] true
-     * [message] {String}
-     */
-    protected function responseWithMessage($message)
-    {
-        $array = [
-            'message' => $message
-        ];
-        return array_merge($this->defaultResponse(true), $array);
-    }
-
-    /**
-     * Response com Array
      * [success] false
      * [message] {String}
+     *
+     * @return array
      */
-    protected function responseWithErrorMessage($message)
+    protected function responseWithErrorMessage($message): array
     {
         $array = [
             'message' => $message
         ];
         return array_merge($this->defaultResponse(false), $array);
-    }
-
-    /**
-     * Response com Array
-     * [success] false
-     * [message] {String}
-     */
-    protected function responseWithErrors($validation)
-    {
-        $errors = $validation->messages();
-        return $this->responseWithErrorMessage($errors[0]);
-    }
-
-    /**
-     * Response com Array
-     * [success] false
-     * [data] {Array}
-     */
-    protected function responseWithData($data)
-    {
-        $array = [
-            'data' => $data
-        ];
-        return array_merge($this->defaultResponse(true), $array);
     }
 
     

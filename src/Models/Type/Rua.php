@@ -21,52 +21,26 @@ class Rua extends AddressType
 
     /**
      * @inheritdoc
+     *
+     * @var false
      */
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     /**
      * @inheritdoc
+     *
+     * @var string[]
+     *
+     * @psalm-var array{0: string}
      */
-    protected $fillable = [
+    protected array $fillable = [
         'value',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return 'Rua';
     }
 
-    public function perguntas()
-    {
-        return [
-
-        ];
-    }
-
-    public static function returnOrRegisterStreet()
-    {
-
-    }
-
-    public function filhos()
-    {
-        return [
-            Casa::class,
-            Condominio::class,
-        ];
-    }
-
-
-    public static function extraImutableAtributes()
-    {
-        return [
-            
-        ];
-    }
-
-    public function extraAtributes()
-    {
-        
-    }
 
 }

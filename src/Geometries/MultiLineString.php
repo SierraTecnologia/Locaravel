@@ -32,16 +32,27 @@ class MultiLineString extends Geometry implements Countable
         $this->linestrings = $linestrings;
     }
 
-    public function getLineStrings()
+    /**
+     * @return LineString[]
+     *
+     * @psalm-return array<array-key, LineString>
+     */
+    public function getLineStrings(): array
     {
         return $this->linestrings;
     }
 
+    /**
+     * @return string
+     */
     public function toWKT()
     {
         return sprintf('MULTILINESTRING(%s)', (string)$this);
     }
 
+    /**
+     * @return self
+     */
     public static function fromString($wktArgument)
     {
         $str = preg_split('/\)\s*,\s*\(/', substr(trim($wktArgument), 1, -1));
@@ -64,11 +75,6 @@ class MultiLineString extends Geometry implements Countable
                 }, $this->getLineStrings()
             )
         );
-    }
-
-    public function count()
-    {
-        return count($this->linestrings);
     }
 
     /**

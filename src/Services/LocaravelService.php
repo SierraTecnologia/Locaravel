@@ -33,21 +33,4 @@ class LocaravelService
 
         return $this->modelServices;
     }
-
-    public function modelIsValid($model)
-    {
-        $services = $this->getModelServices();
-
-        if (!is_array($services)) {
-            return false;
-        }
-
-        foreach ($services as $service) {
-            if ($service->isModelClass($model)) {
-                return true;
-            }
-        }
-        
-        return false;
-    }
 }

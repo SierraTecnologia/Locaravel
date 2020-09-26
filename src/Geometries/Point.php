@@ -4,8 +4,8 @@ use GeoJson\GeoJson;
 
 class Point extends Geometry
 {
-    protected $lat;
-    protected $lng;
+    protected float $lat;
+    protected float $lng;
 
     public function __construct($lat, $lng)
     {
@@ -18,33 +18,23 @@ class Point extends Geometry
         return $this->lat;
     }
 
-    public function setLat($lat)
-    {
-        $this->lat = (float)$lat;
-    }
-
     public function getLng()
     {
         return $this->lng;
     }
 
-    public function setLng($lng)
-    {
-        $this->lng = (float)$lng;
-    }
-
-    public function toPair()
+    public function toPair(): string
     {
         return self::stringifyFloat($this->getLng()) . ' ' . self::stringifyFloat($this->getLat());
     }
     
-    private static function stringifyFloat($float)
+    private static function stringifyFloat($float): string
     {
         // normalized output among locales
         return rtrim(rtrim(sprintf('%F', $float), '0'), '.');
     }
     
-    public static function fromPair($pair)
+    public static function fromPair(string $pair): self
     {
         $pair = preg_replace('/^[a-zA-Z\(\)]+/', '', trim($pair));
         list($lng, $lat) = explode(' ', trim($pair));
@@ -52,6 +42,9 @@ class Point extends Geometry
         return new static((float)$lat, (float)$lng);
     }
 
+    /**
+     * @return string
+     */
     public function toWKT()
     {
         return sprintf('POINT(%s)', (string)$this);

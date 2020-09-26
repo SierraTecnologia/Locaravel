@@ -30,33 +30,4 @@ class LocationBuilder extends Builder
 
         return $this->addSelect("{$this->locationsTable}.*", $this->getConnection()->raw($coordinates));
     }
-
-    /**
-     * @param  Coordinates $southWest
-     * @param  Coordinates $northEast
-     * @return $this
-     */
-    public function whereInArea(Coordinates $southWest, Coordinates $northEast)
-    {
-        $boundaries = sprintf(
-            "ST_GeomFromText('POLYGON((%s %s, %s %s, %s %s, %s %s, %s %s))')",
-            // South west point.
-            $southWest->getLatitude(),
-            $southWest->getLongitude(),
-            // South east point.
-            $southWest->getLatitude(),
-            $northEast->getLongitude(),
-            // North east point.
-            $northEast->getLatitude(),
-            $northEast->getLongitude(),
-            // North west point.
-            $northEast->getLatitude(),
-            $southWest->getLongitude(),
-            // South west point.
-            $southWest->getLatitude(),
-            $southWest->getLongitude()
-        );
-
-        return $this->whereRaw($this->getConnection()->raw("ST_Contains({$boundaries}, {$this->locationsTable}.coordinates)"));
-    }
 }

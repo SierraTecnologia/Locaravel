@@ -20,55 +20,25 @@ class Predio extends AddressType
 
     /**
      * @inheritdoc
+     *
+     * @var false
      */
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     /**
      * @inheritdoc
+     *
+     * @var string[]
+     *
+     * @psalm-var array{0: string}
      */
-    protected $fillable = [
+    protected array $fillable = [
         'value',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return 'Predio';
-    }
-
-    public function perguntas()
-    {
-        return [
-            QuantasPessoasMoramAqui::class,
-        ];
-    }
-
-    public static function extraImutableAtributes()
-    {
-        return [
-            // 'andares'
-            // 'apart'
-            'blocos' => [
-                'name' => 'Número de Blocos',
-                // 'type' => Integer::class,
-                // 'children' => Bloco::extraImutableAtributes(),
-                'result' => function ($result, $parent) {
-                    foreach ($result as $indice=>$valor) {
-                        $data = [
-                            'content' => (string) $indice,
-                            'description' => 'Bloco '.$indice,
-                            'address_id' => $parent->id,
-                            'extra_atributes' => $valor
-                        ];
-                        $bloco = Bloco::registerOrReturnAddress($data);
-                    }
-                }
-            ]
-        ];
-    }
-
-    public function extraAtributes()
-    {
-        
     }
 
 }

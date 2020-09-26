@@ -22,48 +22,27 @@ class Regiao extends AddressType
 
     /**
      * @inheritdoc
+     *
+     * @var false
      */
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     /**
      * @inheritdoc
+     *
+     * @var string[]
+     *
+     * @psalm-var array{0: string}
      */
-    protected $fillable = [
+    protected array $fillable = [
         'value',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return 'Região';
     }
 
-    public function perguntas()
-    {
-        return [
-            QuantosPrediosExistem::class,
-        ];
-    }
-
-    public function filhos()
-    {
-        return [
-            Rua::class,
-            Regiao::class,
-        ];
-    }
-
-
-    public static function extraImutableAtributes()
-    {
-        return [
-            
-        ];
-    }
-
-    public function extraAtributes()
-    {
-        
-    }
 
 
 

@@ -27,6 +27,9 @@ class MultiPolygon extends Geometry implements Countable
         $this->polygons = $polygons;
     }
 
+    /**
+     * @return string
+     */
     public function toWKT()
     {
         return sprintf('MULTIPOLYGON(%s)', (string) $this);
@@ -43,6 +46,9 @@ class MultiPolygon extends Geometry implements Countable
         );
     }
 
+    /**
+     * @return self
+     */
     public static function fromString($wktArgument)
     {
         $parts    = preg_split('/(\)\s*\)\s*,\s*\(\s*\()/', $wktArgument, -1, PREG_SPLIT_DELIM_CAPTURE);
@@ -58,31 +64,6 @@ class MultiPolygon extends Geometry implements Countable
     }
 
     /**
-     * (PHP 5 &gt;= 5.1.0)<br/>
-     * Count elements of an object
-     *
-     * @link   http://php.net/manual/en/countable.count.php
-     * @return int The custom count as an integer.
-     *       </p>
-     *       <p>
-     *       The return value is cast to an integer.
-     */
-    public function count()
-    {
-        return count($this->polygons);
-    }
-
-    /**
-     * Get the polygons that make up this MultiPolygon
-     *
-     * @return array|Polygon[]
-     */
-    public function getPolygons()
-    {
-        return $this->polygons;
-    }
-
-    /**
      * Make an array like this:
      * "((0 0,4 0,4 4,0 4,0 0),(1 1,2 1,2 2,1 2,1 1",
      * ")), ((",
@@ -95,10 +76,13 @@ class MultiPolygon extends Geometry implements Countable
      * "((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))",
      * "((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))"
      *
-     * @param  array $parts
-     * @return array
+     * @param array $parts
+     *
+     * @return (mixed|string)[]
+     *
+     * @psalm-return array<int, mixed|string>
      */
-    protected static function assembleParts(array $parts)
+    protected static function assembleParts(array $parts): array
     {
         $polygons = [];
         $count    = count($parts);

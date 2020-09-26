@@ -6,19 +6,12 @@ use Log;
 
 class Service
 {
-    protected $url = '';
+    protected string $url = '';
 
-    protected $business = false;
-
-    protected $companyToken = false;
-
-    protected function postWithCompanyToken($url, $params, $returnObject = true)
-    {
-        if (!isset($params['token'])) {
-            $params['token'] = $this->companyToken;
-        }
-        return $this->post($url, $params, $returnObject);
-    }
+    /**
+     * @var false
+     */
+    protected bool $companyToken = false;
 
     protected function post($endPoint, $data, $returnObject = true)
     {
@@ -42,7 +35,7 @@ class Service
         return json_decode($result, true);
     }
 
-    protected function postWithAuthentication($endPoint, $data, $authenticationToken, $returnObject = true)
+    protected function postWithAuthentication(string $endPoint, $data, string $authenticationToken, $returnObject = true)
     {
         $data = (is_array($data)) ? http_build_query($data) : $data; 
         $curl = curl_init();
@@ -69,7 +62,7 @@ class Service
         return json_decode($result, true);
     }
 
-    protected function get($endPoint, $returnObject = true)
+    protected function get(string $endPoint, $returnObject = true)
     {
         // make request
         $curl = curl_init();

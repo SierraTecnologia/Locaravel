@@ -13,25 +13,11 @@ use Locaravel\ValueObjects\Longitude;
  */
 final class AddressEntity extends AbstractEntity
 {
-    private $id;
-    private $coordinates;
-
     /**
-     * AddressEntity constructor.
-     *
-     * @param array $attributes
+     * @var int|null
      */
-    public function __construct(array $attributes)
-    {
-        if (!is_null($attributes['id'])) {
-            $this->setId($attributes['id']);
-        }
+    private $id;
 
-        
-        if (isset($attributes['location'])) {
-            $this->setLocation(new LocationEntity($attributes['location']));
-        }
-    }
 
     /**
      * @param  int $id

@@ -8,7 +8,12 @@ use Bosnadev\Database\Schema\Grammars\PostgresGrammar;
 class PostgisGrammar extends PostgresGrammar
 {
 
-    public static $allowed_geom_types = ['GEOGRAPHY', 'GEOMETRY'];
+    /**
+     * @var string[]
+     *
+     * @psalm-var array{0: string, 1: string}
+     */
+    public static array $allowed_geom_types = ['GEOGRAPHY', 'GEOMETRY'];
 
     /**
      * Adds a statement to add a point geometry column
@@ -125,17 +130,6 @@ class PostgisGrammar extends PostgresGrammar
     }
 
     /**
-     * Adds a statement to add a linestring geometry column
-     *
-     * @param  \Illuminate\Support\Fluent $column
-     * @return string
-     */
-    public function typeGeography(Fluent $column)
-    {
-        return 'GEOGRAPHY';
-    }
-
-    /**
      * Adds a statement to add a geometry column
      *
      * @param  \Illuminate\Support\Fluent $column
@@ -144,40 +138,6 @@ class PostgisGrammar extends PostgresGrammar
     public function typeGeometry(Fluent $column)
     {
         return 'GEOMETRY';
-    }
-
-    /**
-     * Adds a statement to add a geometrycollection geometry column
-     *
-     * @param  Blueprint $blueprint
-     * @param  Fluent    $command
-     * @return string
-     */
-    public function compileGeometrycollection(Blueprint $blueprint, Fluent $command)
-    {
-        $command->type = 'GEOMETRYCOLLECTION';
-
-        return $this->compileGeometry($blueprint, $command);
-    }
-
-    /**
-     * Adds a statement to create the postgis extension
-     *
-     * @return string
-     */
-    public function compileEnablePostgis()
-    {
-        return 'CREATE EXTENSION postgis';
-    }
-
-    /**
-     * Adds a statement to drop the postgis extension
-     *
-     * @return string
-     */
-    public function compileDisablePostgis()
-    {
-        return 'DROP EXTENSION postgis';
     }
 
     /**

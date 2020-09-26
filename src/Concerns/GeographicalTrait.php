@@ -46,18 +46,18 @@ trait GeographicalTrait
         return $query;
     }
 
-    public function scopeGeofence($query, $latitude, $longitude, $inner_radius, $outer_radius)
+    public function scopeGeofence($query, $latitude, $longitude, $inner_radius, $outer_radius): \Illuminate\Database\Eloquent\Builder
     {
         $query = $this->scopeDistance($query, $latitude, $longitude);
         return $query->havingRaw('distance BETWEEN ? AND ?', [$inner_radius, $outer_radius]);
     }
 
-    protected function getQualifiedLatitudeColumn()
+    protected function getQualifiedLatitudeColumn(): string
     {
         return $this->getTable() . '.' . $this->getLatitudeColumn();
     }
 
-    protected function getQualifiedLongitudeColumn()
+    protected function getQualifiedLongitudeColumn(): string
     {
         return $this->getTable() . '.' . $this->getLongitudeColumn();
     }

@@ -16,27 +16,14 @@ class Hotel extends Model
         'code',
     ];
 
-
-    public static function rules()
-    {
-        return array('code' => 'required');
-    }
-
-    /**
-     * Get the rooms
-     *
-     * @return array
-     */
-    public function rooms()
-    {
-        return $this->aparts();
-    }
     /**
      * Get the aparts
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Relations\HasMany<Apart>
      */
-    public function aparts()
+    public function aparts(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Apart::class); //, 'hotel_id');
     }

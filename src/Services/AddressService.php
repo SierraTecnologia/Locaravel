@@ -16,14 +16,16 @@ class AddressService
     /**
      * Users as Select options array
      *
-     * @return Array
+     * @return \Illuminate\Database\Eloquent\Collection
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Collection<AddressType>
      */
-    public function typesForCobertura()
+    public function typesForCobertura(): \Illuminate\Database\Eloquent\Collection
     {
         return AddressType::all();
     }
 
-    public function typesForCoberturaForSelect()
+    public function typesForCoberturaForSelect(): array
     {
         return AddressType::pluck('name', 'id')->toArray();
     }

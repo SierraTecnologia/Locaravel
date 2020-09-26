@@ -18,10 +18,7 @@ class Apart extends Model
     ];
 
     
-    public static function rules()
-    {
-        return array('code' => 'required');
-    }
+
 
     /**
      * Hotel
@@ -29,14 +26,6 @@ class Apart extends Model
      * @return Relationship
      */
 
-
-    /**
-     * Get the hotel that owns the phone.
-     */
-    public function hotel()
-    {
-        return $this->belongsTo(Hotel::class);
-    }
 
     // /**
     //  * Get the travels @todo Rever isso aqui

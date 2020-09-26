@@ -28,6 +28,8 @@ class LatitudeRule implements Rule
 
     /**
      * @inheritdoc
+     *
+     * @return array|null|string
      */
     public function message()
     {

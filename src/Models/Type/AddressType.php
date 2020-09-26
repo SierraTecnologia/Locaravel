@@ -17,14 +17,24 @@ class AddressType extends Model
         'type',
     ];
 
-    protected $mappingProperties = array(
+    /**
+     * @var string[][]
+     *
+     * @psalm-var array{category_id: array{type: string, analyzer: string}}
+     */
+    protected array $mappingProperties = array(
         'category_id' => [
             'type' => 'string',
             "analyzer" => "standard",
         ],
     );
 
-    public static $TYPES = [
+    /**
+     * @var Apartamento::class|Casa::class|Condominio::class|Predio::class|Regiao::class|Rua::class[]
+     *
+     * @psalm-var array{0: Regiao::class, 1: Rua::class, 2: Condominio::class, 3: Predio::class, 4: Casa::class, 5: Apartamento::class}
+     */
+    public static array $TYPES = [
         Regiao::class,
         Rua::class,
         Condominio::class,
@@ -32,6 +42,9 @@ class AddressType extends Model
         Casa::class,
         Apartamento::class,
     ];
+    /**
+     * @return void
+     */
     public static function createTodosPadroes()
     {
         if (AddressType::first()) {
@@ -52,7 +65,7 @@ class AddressType extends Model
         );
     }
 
-    public static function registerOrReturnAddress($data)
+    public static function registerOrReturnAddress(array $data): ?Address&\Illuminate\Database\Eloquent\Builder<Address>
     {
         $find = [];
         // @todo fazerui aqui
@@ -88,7 +101,12 @@ class AddressType extends Model
         return $address;
     }
 
-    protected static function getExtraAtributes($data, $referencia)
+    /**
+     * @param Address&\Illuminate\Database\Eloquent\Builder|null $referencia
+     *
+     * @return null|true
+     */
+    protected static function getExtraAtributes($data, ?Address&\Illuminate\Database\Eloquent\Builder<Address> $referencia)
     {
         if (empty($data)) {
             return true;

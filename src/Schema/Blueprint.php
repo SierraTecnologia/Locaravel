@@ -5,10 +5,11 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a point column on the table
      *
-     * @param  $column
-     * @return \Illuminate\Support\Fluent
+     * @param $column
+     *
+     * @return \Illuminate\Database\Schema\ColumnDefinition
      */
-    public function point($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
+    public function point($column, $srid = 'GEOGRAPHY', $srid_new = '4326')
     {
         return $this->addColumn('point', $column, compact('geomtype', 'srid'));
     }
@@ -16,8 +17,9 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a multipoint column on the table
      *
-     * @param  $column
-     * @return \Illuminate\Support\Fluent
+     * @param $column
+     *
+     * @return \Illuminate\Database\Schema\ColumnDefinition
      */
     public function multipoint($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
     {
@@ -27,8 +29,9 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a polygon column on the table
      *
-     * @param  $column
-     * @return \Illuminate\Support\Fluent
+     * @param $column
+     *
+     * @return \Illuminate\Database\Schema\ColumnDefinition
      */
     public function polygon($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
     {
@@ -38,8 +41,9 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a multipolygon column on the table
      *
-     * @param  $column
-     * @return \Illuminate\Support\Fluent
+     * @param $column
+     *
+     * @return \Illuminate\Database\Schema\ColumnDefinition
      */
     public function multipolygon($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
     {
@@ -49,8 +53,9 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a linestring column on the table
      *
-     * @param  $column
-     * @return \Illuminate\Support\Fluent
+     * @param $column
+     *
+     * @return \Illuminate\Database\Schema\ColumnDefinition
      */
     public function linestring($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
     {
@@ -60,8 +65,9 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     /**
      * Add a multilinestring column on the table
      *
-     * @param  $column
-     * @return \Illuminate\Support\Fluent
+     * @param $column
+     *
+     * @return \Illuminate\Database\Schema\ColumnDefinition
      */
     public function multilinestring($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
     {
@@ -69,21 +75,11 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     }
 
     /**
-     * Add a geography column on the table
-     *
-     * @param  string $column
-     * @return \Illuminate\Support\Fluent
-     */
-    public function geography($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
-    {
-        return $this->addColumn('geography', $column, compact('geomtype', 'srid'));
-    }
-
-    /**
      * Add a geometry column on the table
      *
-     * @param  string $column
-     * @return \Illuminate\Support\Fluent
+     * @param string $column
+     *
+     * @return \Illuminate\Database\Schema\ColumnDefinition
      */
     public function geometry($column, $geomtype = 'GEOGRAPHY', $srid = '4326')
     {
@@ -102,28 +98,6 @@ class Blueprint extends \Bosnadev\Database\Schema\Blueprint
     public function geometrycollection($column, $srid = null, $dimensions = 2, $typmod = true)
     {
         return $this->addCommand('geometrycollection', compact('column', 'srid', 'dimensions', 'typmod'));
-    }
-
-    /**
-     * Enable postgis on this database.
-     * Will create the extension in the database.
-     *
-     * @return \Illuminate\Support\Fluent
-     */
-    public function enablePostgis()
-    {
-        return $this->addCommand('enablePostgis');
-    }
-
-    /**
-     * Disable postgis on this database.
-     * WIll drop the extension in the database.
-     *
-     * @return \Illuminate\Support\Fluent
-     */
-    public function disablePostgis()
-    {
-        return $this->addCommand('disablePostgis');
     }
 
 }

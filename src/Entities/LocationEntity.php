@@ -13,8 +13,11 @@ use Locaravel\ValueObjects\Longitude;
  */
 final class LocationEntity extends AbstractEntity
 {
+    /**
+     * @var int|null
+     */
     private $id;
-    private $coordinates;
+    private Coordinates $coordinates;
 
     /**
      * LocationEntity constructor.

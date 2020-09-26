@@ -20,56 +20,27 @@ class Casa extends AddressType
 
     /**
      * @inheritdoc
+     *
+     * @var false
      */
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     /**
      * @inheritdoc
+     *
+     * @var string[]
+     *
+     * @psalm-var array{0: string}
      */
-    protected $fillable = [
+    protected array $fillable = [
         'value',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return 'Casa';
     }
 
-    public function perguntas()
-    {
-        return [
-            QuantasPessoasMoramAqui::class,
-        ];
-    }
-
-
-    /**
-     * Gera uma Nova Notificação para o Alvo
-     *
-     * @param  [type] $target
-     * @param  [type] $typeEmergency
-     * @param  array  $data
-     * @return void
-     */
-    public static function generate($target, $typeEmergency, $data = [])
-    {
-        // @todo
-        // self::create([
-
-        // ]);
-    }
-
-    public static function extraImutableAtributes()
-    {
-        return [
-            
-        ];
-    }
-
-    public function extraAtributes()
-    {
-        
-    }
 
 
 }

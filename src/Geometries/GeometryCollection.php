@@ -30,11 +30,9 @@ class GeometryCollection extends Geometry implements Countable
         $this->geometries = $geometries;
     }
 
-    public function getGeometries()
-    {
-        return $this->geometries;
-    }
-
+    /**
+     * @return string
+     */
     public function toWKT()
     {
         return sprintf('GEOMETRYCOLLECTION(%s)', (string)$this);
@@ -53,6 +51,9 @@ class GeometryCollection extends Geometry implements Countable
         );
     }
 
+    /**
+     * @return self
+     */
     public static function fromString($wktArgument)
     {
         $geometry_strings = preg_split('/,\s*(?=[A-Za-z])/', $wktArgument);
@@ -68,11 +69,6 @@ class GeometryCollection extends Geometry implements Countable
                 $geometry_strings
             )
         );
-    }
-
-    public function count()
-    {
-        return count($this->geometries);
     }
 
     /**

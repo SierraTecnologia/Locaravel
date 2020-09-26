@@ -5,6 +5,9 @@ use Countable;
 class Polygon extends MultiLineString implements Countable
 {
 
+    /**
+     * @return string
+     */
     public function toWKT()
     {
         return sprintf('POLYGON(%s)', (string)$this);

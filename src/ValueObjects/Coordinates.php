@@ -12,8 +12,8 @@ use JsonSerializable;
  */
 final class Coordinates implements Arrayable, JsonSerializable
 {
-    private $latitude;
-    private $longitude;
+    private Latitude $latitude;
+    private Longitude $longitude;
 
     /**
      * Coordinates constructor.
@@ -68,18 +68,5 @@ final class Coordinates implements Arrayable, JsonSerializable
     public function jsonSerialize(): array
     {
         return $this->toArray();
-    }
-
-    /**
-     * Captura o endereço da coordenada no google maps
-     *
-     * @return void
-     */
-    public function getAddress()
-    {
-        return Geolocation::getAddress(
-            $this->getLatitude()->getValue(),
-            $this->getLongitude()->getValue()
-        );
     }
 }
