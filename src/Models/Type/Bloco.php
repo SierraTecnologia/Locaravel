@@ -23,7 +23,7 @@ class Bloco extends AddressType
      *
      * @var false
      */
-    public bool $timestamps = false;
+    public $timestamps = false;
 
     /**
      * @inheritdoc
@@ -32,7 +32,7 @@ class Bloco extends AddressType
      *
      * @psalm-var array{0: string}
      */
-    protected array $fillable = [
+    protected $fillable = [
         'value',
     ];
 
