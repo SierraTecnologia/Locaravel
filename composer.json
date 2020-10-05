@@ -59,15 +59,7 @@
             "tests/Stubs/"
         ]
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../**",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
+    "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
