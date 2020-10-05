@@ -30,10 +30,10 @@
         "doctrine/dbal": "^2.0",
         "illuminate/support": "^7.0 || ^8.0",
         "illuminate/database": "^7.0 || ^8.0",
-        "sierratecnologia/crypto": "dev-master",
-        "sierratecnologia/pedreiro": "dev-master",
-        "ricardosierra/validate": "dev-master",
-        "ricardosierra/translation": "dev-master",
+        "sierratecnologia/crypto": "^0.4.0",
+        "sierratecnologia/pedreiro": "^0.4.0",
+        "ricardosierra/validate": "^0.4.0",
+        "ricardosierra/translation": "^0.4.0",
         "geo-io/wkb-parser": "^1.0",
         "jmikola/geojson": "^1.0",
         "ricardosierra/database": "^0.21",
@@ -59,7 +59,6 @@
             "tests/Stubs/"
         ]
     },
-    "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
