@@ -97,7 +97,7 @@ class LocaravelProvider extends ServiceProvider
             }
         );
 
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations');
 
         $this->app->singleton(
             'locaravel',
@@ -191,7 +191,7 @@ class LocaravelProvider extends ServiceProvider
 
 
         // Register Migrations
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations');
     }
 
     private function loadViews()
