@@ -27,16 +27,18 @@ use SierraTecnologia\Crypto\CryptoProvider;
 
 class LocaravelProvider extends ServiceProvider
 {
-    public $packageName = 'locaravel';
 
     use ConsoleTools;
     
+    public $packageName = 'locaravel';
+    const pathVendor = 'sierratecnologia/locaravel';
+
     public static $menuItens = [
         'Admin' => [
             'Locaravel' => [
                 [
                     'text'        => 'Locaravel',
-                    'route'       => 'admin.locaravel.index',
+                    'route'       => 'admin.locaravel.addresses.index',
                     'icon'        => 'fas fa-fw fa-gavel',
                     'icon_color'  => 'blue',
                     'label_color' => 'success',
@@ -113,7 +115,8 @@ class LocaravelProvider extends ServiceProvider
         // the database. We will inject the factory into the manager so that it may
         // make the connections while they are actually needed and not of before.
         $this->app->singleton(
-            'db.factory', function ($app) {
+            'db.factory',
+            function ($app) {
                 return new ConnectionFactory($app);
             }
         );
@@ -122,7 +125,8 @@ class LocaravelProvider extends ServiceProvider
         // connections might be managed. It also implements the connection resolver
         // interface which may be used by other components requiring connections.
         $this->app->singleton(
-            'db', function ($app) {
+            'db',
+            function ($app) {
                 return new DatabaseManager($app, $app['db.factory']);
             }
         );

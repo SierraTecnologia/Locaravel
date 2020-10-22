@@ -2,6 +2,8 @@
 
 namespace Locaravel\Http\Controllers\Admin;
 
+use Exception;
+use Illuminate\Http\Request;
 use Locaravel\Models\Address;
 
 class AddressController extends Controller
