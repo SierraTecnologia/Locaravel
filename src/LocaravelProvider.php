@@ -83,7 +83,7 @@ class LocaravelProvider extends ServiceProvider
         /**
          * Stalker Routes
          */
-        $this->loadRoutesForRiCa(__DIR__.'/../routes');
+        $this->loadRoutesForRiCa(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'routes');
     }
     /**
      * Register the service provider.
@@ -99,7 +99,7 @@ class LocaravelProvider extends ServiceProvider
             }
         );
 
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations');
 
         $this->app->singleton(
             'locaravel',
@@ -195,7 +195,7 @@ class LocaravelProvider extends ServiceProvider
 
 
         // Register Migrations
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations');
     }
 
     private function loadViews()
@@ -205,7 +205,7 @@ class LocaravelProvider extends ServiceProvider
         $this->loadViewsFrom($viewsPath, 'locaravel');
         $this->publishes(
             [
-            $viewsPath => base_path('resources/views/vendor/locaravel'),
+            $viewsPath => base_path('resources'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'locaravel'),
             ],
             ['views',  'sitec', 'sitec-views', 'locaravel']
         );
@@ -216,7 +216,7 @@ class LocaravelProvider extends ServiceProvider
         // Publish lanaguage files
         $this->publishes(
             [
-            $this->getResourcesPath('lang') => resource_path('lang/vendor/locaravel')
+            $this->getResourcesPath('lang') => resource_path('lang'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'locaravel')
             ],
             ['lang',  'sitec', 'locaravel']
         );
