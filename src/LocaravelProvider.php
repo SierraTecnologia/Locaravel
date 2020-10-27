@@ -27,16 +27,18 @@ use SierraTecnologia\Crypto\CryptoProvider;
 
 class LocaravelProvider extends ServiceProvider
 {
-    public $packageName = 'locaravel';
 
     use ConsoleTools;
     
+    public $packageName = 'locaravel';
+    const pathVendor = 'sierratecnologia/locaravel';
+
     public static $menuItens = [
         'Admin' => [
             'Locaravel' => [
                 [
                     'text'        => 'Locaravel',
-                    'route'       => 'admin.locaravel.index',
+                    'route'       => 'admin.locaravel.addresses.index',
                     'icon'        => 'fas fa-fw fa-gavel',
                     'icon_color'  => 'blue',
                     'label_color' => 'success',
@@ -81,7 +83,7 @@ class LocaravelProvider extends ServiceProvider
         /**
          * Stalker Routes
          */
-        $this->loadRoutesForRiCa(__DIR__.'/../routes');
+        $this->loadRoutesForRiCa(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'routes');
     }
     /**
      * Register the service provider.
@@ -97,7 +99,7 @@ class LocaravelProvider extends ServiceProvider
             }
         );
 
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations');
 
         $this->app->singleton(
             'locaravel',
@@ -113,7 +115,8 @@ class LocaravelProvider extends ServiceProvider
         // the database. We will inject the factory into the manager so that it may
         // make the connections while they are actually needed and not of before.
         $this->app->singleton(
-            'db.factory', function ($app) {
+            'db.factory',
+            function ($app) {
                 return new ConnectionFactory($app);
             }
         );
@@ -122,7 +125,8 @@ class LocaravelProvider extends ServiceProvider
         // connections might be managed. It also implements the connection resolver
         // interface which may be used by other components requiring connections.
         $this->app->singleton(
-            'db', function ($app) {
+            'db',
+            function ($app) {
                 return new DatabaseManager($app, $app['db.factory']);
             }
         );
@@ -191,7 +195,7 @@ class LocaravelProvider extends ServiceProvider
 
 
         // Register Migrations
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations');
     }
 
     private function loadViews()
@@ -201,7 +205,7 @@ class LocaravelProvider extends ServiceProvider
         $this->loadViewsFrom($viewsPath, 'locaravel');
         $this->publishes(
             [
-            $viewsPath => base_path('resources/views/vendor/locaravel'),
+            $viewsPath => base_path('resources'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'locaravel'),
             ],
             ['views',  'sitec', 'sitec-views', 'locaravel']
         );
@@ -212,7 +216,7 @@ class LocaravelProvider extends ServiceProvider
         // Publish lanaguage files
         $this->publishes(
             [
-            $this->getResourcesPath('lang') => resource_path('lang/vendor/locaravel')
+            $this->getResourcesPath('lang') => resource_path('lang'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'locaravel')
             ],
             ['lang',  'sitec', 'locaravel']
         );
