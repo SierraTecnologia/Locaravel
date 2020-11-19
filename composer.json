@@ -32,7 +32,7 @@
         "illuminate/database": "^7.0 || ^8.0",
         "sierratecnologia/crypto": "^0.4.0",
         "sierratecnologia/pedreiro": "^0.4.0",
-        "ricardosierra/validate": "^0.4.0",
+        "ricardosierra/validate": "^0.2.0",
         "ricardosierra/translation": "^0.4.0",
         "geo-io/wkb-parser": "^1.0",
         "jmikola/geojson": "^1.0",
