@@ -5,7 +5,7 @@ namespace Locaravel\Repositories\Travels;
 use Carbon\Carbon;
 use Locaravel\Models\Travels\Apart;
 use App\Repositories\CmsRepository;
-use App\Repositories\TranslationRepository;
+use Translation\Repositories\TranslationRepository;
 
 class ApartRepository extends CmsRepository
 {

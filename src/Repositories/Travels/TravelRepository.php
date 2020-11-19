@@ -5,7 +5,7 @@ namespace Locaravel\Repositories\Travels;
 use Carbon\Carbon;
 use App\Models\Calendar\Travel;
 use App\Repositories\CmsRepository;
-use App\Repositories\TranslationRepository;
+use Translation\Repositories\TranslationRepository;
 
 class TravelRepository extends CmsRepository
 {
