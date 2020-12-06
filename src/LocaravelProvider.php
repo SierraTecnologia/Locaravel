@@ -34,10 +34,18 @@ class LocaravelProvider extends ServiceProvider
     const pathVendor = 'sierratecnologia/locaravel';
 
     public static $menuItens = [
-        'Admin' => [
-            'Locaravel' => [
+        // 'Admin' => [
+            [
+                'text' => 'Cadastros',
+                'icon' => 'fas fa-fw fa-search',
+                'icon_color' => "blue",
+                'label_color' => "success",
+                'section'   => 'admin',
+                'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+            ],
+            'Cadastros' => [
                 [
-                    'text'        => 'Locaravel',
+                    'text'        => 'Endereços',
                     'route'       => 'admin.locaravel.addresses.index',
                     'icon'        => 'fas fa-fw fa-gavel',
                     'icon_color'  => 'blue',
@@ -45,7 +53,7 @@ class LocaravelProvider extends ServiceProvider
                     // 'access' => \Porteiro\Models\Role::$ADMIN
                 ],
             ],
-        ],
+        // ],
     ];
 
     /**
