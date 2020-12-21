@@ -2,6 +2,7 @@
 
 namespace Locaravel\Entities;
 
+use Illuminate\Support\Collection;
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
 
@@ -27,4 +28,15 @@ abstract class AbstractEntity implements Arrayable, JsonSerializable
     {
         return $this->toArray();
     }
+
+    /**
+     * persist
+     *
+     * @return bool
+     */
+    private function persist()
+    {
+        $this->model::create($this->toArray());
+    }
+
 }
