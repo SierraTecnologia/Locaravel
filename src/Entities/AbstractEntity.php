@@ -2,41 +2,14 @@
 
 namespace Locaravel\Entities;
 
-use Illuminate\Support\Collection;
-use Illuminate\Contracts\Support\Arrayable;
-use JsonSerializable;
+use Muleta\Contracts\Objects\AbstractEntity as AbstractEntityBase;
 
 /**
  * Class AbstractEntity.
  *
  * @package Core\Entities
  */
-abstract class AbstractEntity implements Arrayable, JsonSerializable
+abstract class AbstractEntity extends AbstractEntityBase
 {
-    /**
-     * @inheritdoc
-     */
-    public function toArray(): array
-    {
-        return [];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function jsonSerialize(): array
-    {
-        return $this->toArray();
-    }
-
-    /**
-     * persist
-     *
-     * @return bool
-     */
-    private function persist()
-    {
-        $this->model::create($this->toArray());
-    }
 
 }
