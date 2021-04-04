@@ -42,7 +42,19 @@ class LocaravelProvider extends ServiceProvider
     ];
 
     public static $menuItens = [
-        // 'Admin' => [
+        // Igual em: Locaravel, Bancario, Telefonica, Informate, Population
+        [
+            'text' => 'Universo',
+            'icon' => 'fas fa-fw fa-globe-americas',
+            'icon_color' => "blue",
+            'label_color' => "success",
+            'order' => 2800,
+            'section' => "admin",
+            // 'feature' => 'bancario',
+            'dev_status'  => 2, // 0 (Desabilitado), 1 (Ativo), 2 (Em Dev)
+            'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+        ],
+        'Universo' => [
             [
                 'text' => 'Cadastros',
                 'icon' => 'fas fa-fw fa-search',
@@ -50,6 +62,7 @@ class LocaravelProvider extends ServiceProvider
                 'label_color' => "success",
                 'section'   => 'admin',
                 'feature' => 'locaravel',
+                'order' => 3400,
                 'dev_status'  => 2, // 0 (Desabilitado), 1 (Ativo), 2 (Em Dev)
                 'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
             ],
@@ -62,12 +75,13 @@ class LocaravelProvider extends ServiceProvider
                     'label_color' => 'success',
                     'section'   => 'admin',
                     'feature' => 'locaravel',
+                    'order' => 3400,
                     'dev_status'  => 2, // 0 (Desabilitado), 1 (Ativo), 2 (Em Dev)
                     'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
                     // 'access' => \Porteiro\Models\Role::$ADMIN
                 ],
             ],
-        // ],
+        ],
     ];
 
     /**
