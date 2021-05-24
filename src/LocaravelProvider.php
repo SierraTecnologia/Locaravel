@@ -80,6 +80,19 @@ class LocaravelProvider extends ServiceProvider
                     'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
                     // 'access' => \Porteiro\Models\Role::$ADMIN
                 ],
+                [
+                    'text'        => 'Places',
+                    'route'       => 'admin.locaravel.places.index',
+                    'icon'        => 'fas fa-fw fa-gavel',
+                    'icon_color'  => 'blue',
+                    'label_color' => 'success',
+                    'section'   => 'admin',
+                    // 'feature' => 'locaravel',
+                    'order' => 3400,
+                    'dev_status'  => 2, // 0 (Desabilitado), 1 (Ativo), 2 (Em Dev)
+                    'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+                    // 'access' => \Porteiro\Models\Role::$ADMIN
+                ],
             ],
         ],
     ];

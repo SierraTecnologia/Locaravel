@@ -18,10 +18,24 @@ class CreatePlacesTables extends Migration
         
         
         Schema::create(
+            'place_types',
+            function (Blueprint $table) {
+                $table->engine = 'InnoDB';
+                $table->increments('id')->unsigned();
+                $table->string('name', 255);
+                $table->string('type', 255);
+                $table->timestamps();
+                $table->softDeletes();
+            }
+        );
+        Schema::create(
             'places', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
                 $table->string('name');
+                $table->integer('place_type_id')->unsigned()->nullable()->default(null);
+                $table->foreign('place_type_id')->references('id')->on('place_types')->onUpdate('cascade')->onDelete('set null');
+
                 $table->timestamps();
                 $table->softDeletes();
             }
@@ -52,6 +66,7 @@ class CreatePlacesTables extends Migration
     {
         Schema::dropIfExists('placeables');
         Schema::dropIfExists('places');
+        Schema::dropIfExists('place_types');
     }
 
 }
