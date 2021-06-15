@@ -7,6 +7,7 @@ class PostgisConnection extends \Bosnadev\Database\PostgresConnection
         parent::__construct($pdo, $database, $tablePrefix, $config);
 
         // Prevent geography type fields from throwing a 'type not found' error.
+        $this->getDoctrineSchemaManager()->getDatabasePlatform()->registerDoctrineTypeMapping('point', 'string');
         $this->getDoctrineSchemaManager()->getDatabasePlatform()->registerDoctrineTypeMapping('geography', 'string');
         $this->getDoctrineSchemaManager()->getDatabasePlatform()->registerDoctrineTypeMapping('geometry', 'string');
     }
