@@ -33,15 +33,64 @@ class LocaravelProvider extends ServiceProvider
     public $packageName = 'locaravel';
     const pathVendor = 'sierratecnologia/locaravel';
 
+
+    public static $providers = [
+
+        \Translation\TranslationServiceProvider::class,
+
+        
+    ];
+
     public static $menuItens = [
-        'Admin' => [
-            'Locaravel' => [
+        // Igual em: Locaravel, Bancario, Telefonica, Informate, Population
+        [
+            'text' => 'Universo',
+            'icon' => 'fas fa-fw fa-globe-americas',
+            'icon_color' => "blue",
+            'label_color' => "success",
+            'order' => 2800,
+            'section' => "admin",
+            // 'feature' => 'bancario',
+            'dev_status'  => 2, // 0 (Desabilitado), 1 (Ativo), 2 (Em Dev)
+            'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+        ],
+        'Universo' => [
+            [
+                'text' => 'Cadastros',
+                'icon' => 'fas fa-fw fa-search',
+                'icon_color' => "blue",
+                'label_color' => "success",
+                'section'   => 'admin',
+                'feature' => 'locaravel',
+                'order' => 3400,
+                'dev_status'  => 2, // 0 (Desabilitado), 1 (Ativo), 2 (Em Dev)
+                'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+            ],
+            'Cadastros' => [
                 [
-                    'text'        => 'Locaravel',
+                    'text'        => 'Endereços',
                     'route'       => 'admin.locaravel.addresses.index',
                     'icon'        => 'fas fa-fw fa-gavel',
                     'icon_color'  => 'blue',
                     'label_color' => 'success',
+                    'section'   => 'admin',
+                    'feature' => 'locaravel',
+                    'order' => 3400,
+                    'dev_status'  => 2, // 0 (Desabilitado), 1 (Ativo), 2 (Em Dev)
+                    'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+                    // 'access' => \Porteiro\Models\Role::$ADMIN
+                ],
+                [
+                    'text'        => 'Places',
+                    'route'       => 'admin.locaravel.places.index',
+                    'icon'        => 'fas fa-fw fa-gavel',
+                    'icon_color'  => 'blue',
+                    'label_color' => 'success',
+                    'section'   => 'admin',
+                    // 'feature' => 'locaravel',
+                    'order' => 3400,
+                    'dev_status'  => 2, // 0 (Desabilitado), 1 (Ativo), 2 (Em Dev)
+                    'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
                     // 'access' => \Porteiro\Models\Role::$ADMIN
                 ],
             ],

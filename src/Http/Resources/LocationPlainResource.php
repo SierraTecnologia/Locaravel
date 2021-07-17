@@ -3,7 +3,7 @@
 namespace Locaravel\Http\Resources;
 
 use Locaravel\Entities\LocationEntity;
-use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Http\Resources\Json\JsonResource as Resource;
 use function SiUtils\Helper\html_purify;
 use function SiUtils\Helper\to_float;
 
