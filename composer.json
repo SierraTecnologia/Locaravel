@@ -32,7 +32,6 @@
         "illuminate/database": "^7.0 || ^8.0",
         "sierratecnologia/crypto": "dev-master",
         "sierratecnologia/pedreiro": "dev-master",
-        "ricardosierra/validate": "dev-master",
         "ricardosierra/translation": "dev-master",
         "geo-io/wkb-parser": "^1.0",
         "jmikola/geojson": "^1.0",
@@ -40,6 +39,9 @@
         "jordanbrauer/unit-converter": "^0.8.4"
     },
     "require-dev": {
+        "psalm/plugin-laravel": "^1.2",
+        "vimeo/psalm": "^4.0",
+        "phpro/grumphp": ">=1.3",
         "myclabs/php-enum": "^1.6",
         "orchestra/testbench": "^4.0|^5.0",
         "phpunit/phpunit": "^8.0|^9.0",
@@ -61,9 +63,10 @@
     },
     "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
     "scripts": {
+        "psalm": "vendor/bin/psalm",
         "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "extra": {
         "laravel": {
