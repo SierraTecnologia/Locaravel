@@ -16,7 +16,9 @@ class AddressService
     /**
      * Users as Select options array
      *
-     * @return Array
+     * @return AddressType[]|\Illuminate\Database\Eloquent\Collection
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Collection|array<AddressType>
      */
     public function typesForCobertura()
     {

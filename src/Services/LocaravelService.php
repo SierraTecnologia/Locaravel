@@ -34,7 +34,7 @@ class LocaravelService
         return $this->modelServices;
     }
 
-    public function modelIsValid($model)
+    public function modelIsValid($model): bool
     {
         $services = $this->getModelServices();
 

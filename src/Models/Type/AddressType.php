@@ -32,6 +32,9 @@ class AddressType extends Model
         Casa::class,
         Apartamento::class,
     ];
+    /**
+     * @return void
+     */
     public static function createTodosPadroes()
     {
         if (AddressType::first()) {
@@ -52,7 +55,10 @@ class AddressType extends Model
         );
     }
 
-    public static function registerOrReturnAddress($data)
+    /**
+     * @param (mixed|string)[] $data
+     */
+    public static function registerOrReturnAddress(array $data)
     {
         $find = [];
         // @todo fazerui aqui
@@ -88,6 +94,9 @@ class AddressType extends Model
         return $address;
     }
 
+    /**
+     * @return null|true
+     */
     protected static function getExtraAtributes($data, $referencia)
     {
         if (empty($data)) {

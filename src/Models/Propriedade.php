@@ -60,8 +60,10 @@ class Propriedade extends Model
 
     /**
      * Get the propriedadeType that owns the phone.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function propriedadeType()
+    public function propriedadeType(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(PropriedadeType::class);
     }
@@ -69,8 +71,10 @@ class Propriedade extends Model
         
     /**
      * Get all of the owning propriedadeable models.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
-    public function propriedadeable()
+    public function propriedadeable(): \Illuminate\Database\Eloquent\Relations\MorphTo
     {
         return $this->morphTo();
     }

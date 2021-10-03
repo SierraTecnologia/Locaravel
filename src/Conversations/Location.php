@@ -24,17 +24,17 @@ class Location
         $this->longitude = $longitude;
     }
 
-    public function getLatitude()
+    public function getLatitude(): float
     {
         return $this->latitude; 
     }
 
-    public function getLongitude()
+    public function getLongitude(): float
     {
         return $this->longitude; 
     }
 
-    public function getLocationAttachment()
+    public function getLocationAttachment(): BotManLocation
     {
         return new BotManLocation($this->latitude, $this->longitude);
     }

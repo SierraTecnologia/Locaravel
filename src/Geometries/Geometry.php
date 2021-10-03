@@ -15,6 +15,9 @@ abstract class Geometry implements GeometryInterface, \JsonSerializable
         7 => GeometryCollection::class
     ];
 
+    /**
+     * @return false|string
+     */
     public static function getWKTArgument($value)
     {
         $left = strpos($value, '(');
@@ -23,7 +26,10 @@ abstract class Geometry implements GeometryInterface, \JsonSerializable
         return substr($value, $left + 1, $right - $left - 1);
     }
 
-    public static function getWKTClass($value)
+    /**
+     * @return string
+     */
+    public static function getWKTClass($value): string
     {
         $left = strpos($value, '(');
         $type = trim(substr($value, 0, $left));

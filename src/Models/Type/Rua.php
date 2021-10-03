@@ -31,24 +31,34 @@ class Rua extends AddressType
         'value',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return 'Rua';
     }
 
-    public function perguntas()
+    /**
+     * @return array
+     *
+     * @psalm-return array<empty, empty>
+     */
+    public function perguntas(): array
     {
         return [
 
         ];
     }
 
-    public static function returnOrRegisterStreet()
+    public static function returnOrRegisterStreet(): void
     {
 
     }
 
-    public function filhos()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{0: Casa::class, 1: Condominio::class}
+     */
+    public function filhos(): array
     {
         return [
             Casa::class,
@@ -57,14 +67,19 @@ class Rua extends AddressType
     }
 
 
-    public static function extraImutableAtributes()
+    /**
+     * @return array
+     *
+     * @psalm-return array<empty, empty>
+     */
+    public static function extraImutableAtributes(): array
     {
         return [
             
         ];
     }
 
-    public function extraAtributes()
+    public function extraAtributes(): void
     {
         
     }

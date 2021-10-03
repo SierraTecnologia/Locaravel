@@ -15,7 +15,10 @@ class PushService extends Service
         $this->companyToken = false;
     }
 
-    public function send($params)
+    /**
+     * @return true
+     */
+    public function send($params): bool
     {
         Log::info('[Onesignal] Enviando data: '. print_r($params, true));
         $response = $this->postWithAuthentication(

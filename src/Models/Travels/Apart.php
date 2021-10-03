@@ -18,7 +18,12 @@ class Apart extends Model
     ];
 
     
-    public static function rules()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{code: 'required'}
+     */
+    public static function rules(): array
     {
         return array('code' => 'required');
     }
@@ -32,8 +37,10 @@ class Apart extends Model
 
     /**
      * Get the hotel that owns the phone.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function hotel()
+    public function hotel(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Hotel::class);
     }

@@ -30,12 +30,17 @@ class Apartamento extends AddressType
         'value',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return 'Apartamento';
     }
 
-    public function perguntas()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{0: QuantasPessoasMoramAqui::class}
+     */
+    public function perguntas(): array
     {
         return [
             QuantasPessoasMoramAqui::class,
@@ -43,14 +48,19 @@ class Apartamento extends AddressType
     }
 
 
-    public static function extraImutableAtributes()
+    /**
+     * @return array
+     *
+     * @psalm-return array<empty, empty>
+     */
+    public static function extraImutableAtributes(): array
     {
         return [
             
         ];
     }
 
-    public function extraAtributes()
+    public function extraAtributes(): void
     {
         
     }

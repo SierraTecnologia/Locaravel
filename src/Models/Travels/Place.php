@@ -62,8 +62,10 @@ class Place extends Model
 
     /**
      * Get the type that owns the phone.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function type()
+    public function type(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(PlaceType::class);
     }
