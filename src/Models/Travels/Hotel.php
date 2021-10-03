@@ -17,7 +17,12 @@ class Hotel extends Model
     ];
 
 
-    public static function rules()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{code: 'required'}
+     */
+    public static function rules(): array
     {
         return array('code' => 'required');
     }
@@ -25,18 +30,18 @@ class Hotel extends Model
     /**
      * Get the rooms
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function rooms()
+    public function rooms(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->aparts();
     }
     /**
      * Get the aparts
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function aparts()
+    public function aparts(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Apart::class); //, 'hotel_id');
     }

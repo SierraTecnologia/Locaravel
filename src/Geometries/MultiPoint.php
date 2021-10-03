@@ -2,11 +2,17 @@
 
 class MultiPoint extends PointCollection implements GeometryInterface, \JsonSerializable
 {
+    /**
+     * @return string
+     */
     public function toWKT()
     {
         return sprintf('MULTIPOINT(%s)', (string)$this);
     }
 
+    /**
+     * @return static
+     */
     public static function fromWKT($wkt)
     {
         $wktArgument = Geometry::getWKTArgument($wkt);
@@ -14,6 +20,11 @@ class MultiPoint extends PointCollection implements GeometryInterface, \JsonSeri
         return static::fromString($wktArgument);
     }
 
+    /**
+     * @return static
+     *
+     * @param false|string $wktArgument
+     */
     public static function fromString($wktArgument)
     {
         $matches = [];

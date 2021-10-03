@@ -22,9 +22,9 @@ class PlaceType extends Model
     /**
      * Get the places
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function places()
+    public function places(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Place::class); //, 'hotel_id');
     }

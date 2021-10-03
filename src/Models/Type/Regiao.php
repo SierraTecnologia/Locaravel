@@ -32,19 +32,29 @@ class Regiao extends AddressType
         'value',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return 'Região';
     }
 
-    public function perguntas()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{0: QuantosPrediosExistem::class}
+     */
+    public function perguntas(): array
     {
         return [
             QuantosPrediosExistem::class,
         ];
     }
 
-    public function filhos()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{0: Rua::class, 1: self::class}
+     */
+    public function filhos(): array
     {
         return [
             Rua::class,
@@ -53,14 +63,19 @@ class Regiao extends AddressType
     }
 
 
-    public static function extraImutableAtributes()
+    /**
+     * @return array
+     *
+     * @psalm-return array<empty, empty>
+     */
+    public static function extraImutableAtributes(): array
     {
         return [
             
         ];
     }
 
-    public function extraAtributes()
+    public function extraAtributes(): void
     {
         
     }

@@ -28,6 +28,8 @@ class LongitudeRule implements Rule
 
     /**
      * @inheritdoc
+     *
+     * @return array|null|string
      */
     public function message()
     {

@@ -36,7 +36,12 @@ abstract class PointCollection implements IteratorAggregate, Arrayable, ArrayAcc
         $this->points = $points;
     }
 
-    public function getPoints()
+    /**
+     * @return Point[]
+     *
+     * @psalm-return array<Point>
+     */
+    public function getPoints(): array
     {
         return $this->points;
     }
@@ -51,17 +56,17 @@ abstract class PointCollection implements IteratorAggregate, Arrayable, ArrayAcc
         return new ArrayIterator($this->points);
     }
 
-    public function prependPoint(Point $point)
+    public function prependPoint(Point $point): void
     {
         array_unshift($this->points, $point);
     }
 
-    public function appendPoint(Point $point)
+    public function appendPoint(Point $point): void
     {
         $this->points[] = $point;
     }
 
-    public function insertPoint($index, Point $point)
+    public function insertPoint($index, Point $point): void
     {
         if (count($this->points) - 1 < $index) {
             throw new InvalidArgumentException('$index is greater than the size of the array');
@@ -107,7 +112,7 @@ abstract class PointCollection implements IteratorAggregate, Arrayable, ArrayAcc
         return count($this->points);
     }
 
-    public function toPairList()
+    public function toPairList(): string
     {
         return implode(
             ',', array_map(

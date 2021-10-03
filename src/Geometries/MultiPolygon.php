@@ -27,6 +27,9 @@ class MultiPolygon extends Geometry implements Countable
         $this->polygons = $polygons;
     }
 
+    /**
+     * @return string
+     */
     public function toWKT()
     {
         return sprintf('MULTIPOLYGON(%s)', (string) $this);
@@ -43,6 +46,9 @@ class MultiPolygon extends Geometry implements Countable
         );
     }
 
+    /**
+     * @return static
+     */
     public static function fromString($wktArgument)
     {
         $parts    = preg_split('/(\)\s*\)\s*,\s*\(\s*\()/', $wktArgument, -1, PREG_SPLIT_DELIM_CAPTURE);

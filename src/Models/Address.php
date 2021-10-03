@@ -52,8 +52,10 @@ class Address extends Model
  
     /**
      * Get the owning addresseable model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
-    public function addresseable()
+    public function addresseable(): \Illuminate\Database\Eloquent\Relations\MorphTo
     {
         return $this->morphTo();
     }
@@ -72,16 +74,20 @@ class Address extends Model
 
     /**
      * Get the addressType that owns the phone.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function addressType()
+    public function addressType(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(AddressType::class);
     }
 
     /**
      * Get the post's localization.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
-    public function localization()
+    public function localization(): \Illuminate\Database\Eloquent\Relations\MorphOne
     {
         return $this->morphOne('Locaravel\Models\Localization', 'localizationable');
     }

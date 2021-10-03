@@ -30,19 +30,29 @@ class Predio extends AddressType
         'value',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return 'Predio';
     }
 
-    public function perguntas()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{0: QuantasPessoasMoramAqui::class}
+     */
+    public function perguntas(): array
     {
         return [
             QuantasPessoasMoramAqui::class,
         ];
     }
 
-    public static function extraImutableAtributes()
+    /**
+     * @return (\Closure|string)[][]
+     *
+     * @psalm-return array{blocos: array{name: 'Número de Blocos', result: \Closure(mixed, mixed):void}}
+     */
+    public static function extraImutableAtributes(): array
     {
         return [
             // 'andares'
@@ -66,7 +76,7 @@ class Predio extends AddressType
         ];
     }
 
-    public function extraAtributes()
+    public function extraAtributes(): void
     {
         
     }

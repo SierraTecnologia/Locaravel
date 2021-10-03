@@ -42,7 +42,11 @@ class Service
         return json_decode($result, true);
     }
 
-    protected function postWithAuthentication($endPoint, $data, $authenticationToken, $returnObject = true)
+    /**
+     * @param string $endPoint
+     * @param string $authenticationToken
+     */
+    protected function postWithAuthentication(string $endPoint, $data, string $authenticationToken, $returnObject = true)
     {
         $data = (is_array($data)) ? http_build_query($data) : $data; 
         $curl = curl_init();
@@ -69,7 +73,7 @@ class Service
         return json_decode($result, true);
     }
 
-    protected function get($endPoint, $returnObject = true)
+    protected function get(string $endPoint, $returnObject = true)
     {
         // make request
         $curl = curl_init();

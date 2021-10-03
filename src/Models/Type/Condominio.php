@@ -29,19 +29,29 @@ class Condominio extends AddressType
         'value',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return 'Condominio';
     }
 
-    public function perguntas()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{0: QuantosPrediosExistem::class}
+     */
+    public function perguntas(): array
     {
         return [
             QuantosPrediosExistem::class,
         ];
     }
 
-    public function filhos()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{0: Residencia::class}
+     */
+    public function filhos(): array
     {
         return [
             Residencia::class,
@@ -49,14 +59,19 @@ class Condominio extends AddressType
     }
 
 
-    public static function extraImutableAtributes()
+    /**
+     * @return array
+     *
+     * @psalm-return array<empty, empty>
+     */
+    public static function extraImutableAtributes(): array
     {
         return [
             
         ];
     }
 
-    public function extraAtributes()
+    public function extraAtributes(): void
     {
         
     }

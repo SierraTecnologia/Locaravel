@@ -2,11 +2,17 @@
 
 class LineString extends PointCollection implements GeometryInterface
 {
+    /**
+     * @return string
+     */
     public function toWKT()
     {
         return sprintf('LINESTRING(%s)', $this->toPairList());
     }
 
+    /**
+     * @return static
+     */
     public static function fromWKT($wkt)
     {
         $wktArgument = Geometry::getWKTArgument($wkt);
@@ -14,6 +20,11 @@ class LineString extends PointCollection implements GeometryInterface
         return static::fromString($wktArgument);
     }
 
+    /**
+     * @return static
+     *
+     * @param false|string $wktArgument
+     */
     public static function fromString($wktArgument)
     {
         $pairs = explode(',', trim($wktArgument));

@@ -18,8 +18,10 @@ class PlaceService
 
     /**
      * @todo Terminar de Fazer
+     *
+     * @return true
      */
-    public static function import($data)
+    public static function import($data): bool
     {   
         $registerData = [];
         if (isset($data['Nome'])) {
