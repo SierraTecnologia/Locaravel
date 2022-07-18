@@ -10,7 +10,7 @@ class MapsService
     public static function getAddressLocation(string $query, $return = Location::class, $isAddress = true): ?object
     {
         $token = config('services.google_maps.token');
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng={$query}&key={$token}"
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng={$query}&key={$token}";
         if ($isAddress) {
             $url = "https://maps.googleapis.com/maps/api/geocode/json?address={$query}&key={$token}";
         }
@@ -30,7 +30,7 @@ class MapsService
     }
     public static function getLocationAddress(string $query, $return = Location::class)
     {
-        return self::getAddressLocation(string $query, $return, false)
+        return self::getAddressLocation($query, $return, false);
     }
 
 }
